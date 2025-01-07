@@ -8,4 +8,9 @@ struct Logger : public Singleton<Logger>
 	{
 		cout << _content << endl;
 	}
+
+	void Error(const string& _content)
+	{
+		cout << "[Error]" << _content << endl;
+	}
 };

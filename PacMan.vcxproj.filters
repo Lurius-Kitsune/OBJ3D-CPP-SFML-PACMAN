@@ -16,15 +16,27 @@
     <Filter Include="Script">
       <UniqueIdentifier>{e58dd968-bc6a-4550-9d14-85f7c9771e8d}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Script\Map">
+    <Filter Include="Script\Level">
       <UniqueIdentifier>{8eea667e-ea78-4d62-b6b7-0f96d632ab4e}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Script\Map\Tile">
+    <Filter Include="Script\Level\Entity">
       <UniqueIdentifier>{050927bb-55fe-4078-8d9d-4062f71ec924}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FileLoader.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Level.cpp">
+      <Filter>Script\Level</Filter>
+    </ClCompile>
+    <ClCompile Include="Entity.cpp">
+      <Filter>Script\Level\Entity</Filter>
+    </ClCompile>
+    <ClCompile Include="TextureManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -40,6 +52,18 @@
     </ClInclude>
     <ClInclude Include="FileLoader.h">
       <Filter>Resource Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Macro.h">
+      <Filter>Resource Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Level.h">
+      <Filter>Script\Level</Filter>
+    </ClInclude>
+    <ClInclude Include="Entity.h">
+      <Filter>Script\Level\Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="TextureManager.h">
+      <Filter>Script</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

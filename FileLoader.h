@@ -1,12 +1,9 @@
 #pragma once
 #include "Singleton.h"
+#include "CoreMinimal.h"
 
 class FileLoader : public Singleton<FileLoader>
 {
 public:
-
-	void Test()
-	{
-		cout << "je suis un singleton" << endl;
-	}
+	vector<string> ReadAll(const char* _path)const;
 };

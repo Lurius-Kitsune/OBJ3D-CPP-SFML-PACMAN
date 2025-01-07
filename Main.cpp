@@ -1,10 +1,8 @@
 #include "CoreMinimal.h"
-#include "FileLoader.h"
+#include "Level.h"
 int main()
 {
-
-    FileLoader::GetInstance().Test();
-
+    Level _level = Level("SmallMap");
     // Crée une fenêtre avec une taille et un titre
    // Fenetre de rendu
    // Plusieur mode de rendu
@@ -25,6 +23,7 @@ int main()
 
         _window.clear();
         //_window.draw(_shape);
+        _window.draw()
         _window.display();
     }
 
