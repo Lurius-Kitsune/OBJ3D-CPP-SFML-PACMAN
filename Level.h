@@ -16,7 +16,9 @@ public:
 public:
 	Level(const string& _name);
 	~Level();
+
+public:
+	void Display(RenderWindow& _window) const;
 private:
 	void Generate();
-	void Display() const;
 };

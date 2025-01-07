@@ -15,6 +15,14 @@ Level::~Level()
     }
 }
 
+void Level::Display(RenderWindow& _window) const
+{
+    for (Entity* _entity : entities)
+    {
+        _window.draw(_entity->GetShape());
+    }
+}
+
 void Level::Generate()
 {
     try

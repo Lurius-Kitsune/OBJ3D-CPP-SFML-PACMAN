@@ -23,10 +23,12 @@ int main()
 
         _window.clear();
         //_window.draw(_shape);
-        for (Entity* _entity : _level.GetEntities())
+
+        /*for (Entity* _entity : _level.GetEntities())
         {
             _window.draw(_entity->GetShape());
-        }
+        }*/
+        _level.Display(_window);
         _window.display();
     }
 
