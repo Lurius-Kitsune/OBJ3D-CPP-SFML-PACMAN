@@ -1,6 +1,6 @@
 #include "Level.h"
 #include "FileLoader.h"
-#include "PacMan.h"
+
 
 Level::Level(const string& _name)
 {

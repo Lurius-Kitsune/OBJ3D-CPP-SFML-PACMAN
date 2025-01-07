@@ -25,6 +25,29 @@ int main()
             {
                 _window.close();
             }
+
+            if (const Event::KeyPressed* _key = _event->getIf<Event::KeyPressed>())
+            {
+                if (_key->code == Keyboard::Key::Up)
+                {
+                    _level.GetPacMan()->GetMovementComponent()->Move({ 0,-1 });
+                }
+
+                if (_key->code == Keyboard::Key::Left)
+                {
+                    _level.GetPacMan()->GetMovementComponent()->Move({ -1,0 });
+                }
+
+                if (_key->code == Keyboard::Key::Right)
+                {
+                    _level.GetPacMan()->GetMovementComponent()->Move({ 1,0 });
+                }
+
+                if (_key->code == Keyboard::Key::Down)
+                {
+                    _level.GetPacMan()->GetMovementComponent()->Move({ 0,1 });
+                }
+            }
         }
 
         _window.clear();

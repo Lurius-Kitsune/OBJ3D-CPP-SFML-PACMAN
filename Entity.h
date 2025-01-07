@@ -20,4 +20,6 @@ public:
 
 public:
 	Entity(const string& _name, const Vector2f& _shapeSize);
+
+	virtual ~Entity() = default;
 };

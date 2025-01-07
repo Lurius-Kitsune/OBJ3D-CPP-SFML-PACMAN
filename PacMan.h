@@ -10,6 +10,12 @@ class PacMan : public Entity
 	LifeCoponent* life;
 
 public:
+	MovementComponent* GetMovementComponent()const
+	{
+		return movement;
+	}
+
+public:
 	PacMan(const string& _name, const Vector2f& _shapeSize);
 	~PacMan();
 };
