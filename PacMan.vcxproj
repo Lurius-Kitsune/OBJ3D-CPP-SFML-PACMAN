@@ -105,7 +105,7 @@
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>.\lib\prog1Dll\header;..\SFML3.0\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <LanguageStandard>stdcpp17</LanguageStandard>
+      <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -132,7 +132,7 @@ xcopy /y /d  ".\lib\prog1Dll\dll\Prog1Lib.dll" "$(OutDir)"
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>.\lib\prog1Dll\header;..\SFML3.0\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <LanguageStandard>stdcpp17</LanguageStandard>
+      <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -156,6 +156,7 @@ xcopy /y /d  ".\lib\prog1Dll\dll\Prog1Lib.dll" "$(OutDir)"
     <ClCompile Include="Component.cpp" />
     <ClCompile Include="Entity.cpp" />
     <ClCompile Include="FileLoader.cpp" />
+    <ClCompile Include="InputManager.cpp" />
     <ClCompile Include="Level.cpp" />
     <ClCompile Include="LifeComponent.cpp" />
     <ClCompile Include="Main.cpp" />
@@ -168,6 +169,7 @@ xcopy /y /d  ".\lib\prog1Dll\dll\Prog1Lib.dll" "$(OutDir)"
     <ClInclude Include="CoreMinimal.h" />
     <ClInclude Include="Entity.h" />
     <ClInclude Include="FileLoader.h" />
+    <ClInclude Include="InputManager.h" />
     <ClInclude Include="Level.h" />
     <ClInclude Include="LifeComponent.h" />
     <ClInclude Include="Logger.h" />

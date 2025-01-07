@@ -54,6 +54,9 @@
     <ClCompile Include="PacMan.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="InputManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Singleton.h">
@@ -91,6 +94,9 @@
     </ClInclude>
     <ClInclude Include="LifeComponent.h">
       <Filter>Script\Component</Filter>
+    </ClInclude>
+    <ClInclude Include="InputManager.h">
+      <Filter>Resource Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

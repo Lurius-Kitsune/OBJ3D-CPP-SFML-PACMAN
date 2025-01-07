@@ -18,4 +18,8 @@ public:
 public:
 	PacMan(const string& _name, const Vector2f& _shapeSize);
 	~PacMan();
+
+private:
+	void SetupInput();
+
 };
