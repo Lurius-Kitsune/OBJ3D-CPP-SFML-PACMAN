@@ -13,7 +13,7 @@ public:
 		shape.setPosition(_position);
 	}
 
-	const INLINE RectangleShape GetShape()const
+	INLINE RectangleShape& GetShape()
 	{
 		return shape;
 	}

@@ -1,5 +1,7 @@
 #include "Level.h"
 #include "FileLoader.h"
+#include "PacMan.h"
+
 Level::Level(const string& _name)
 {
 	name = _name;
@@ -29,7 +31,7 @@ void Level::Generate()
     {
         const string& _extensionPath = ".txt";
         const vector<string>& _data = FileLoader::GetInstance().ReadAll((prefixPath + name).c_str());
-        const u_int& _size = _data.size();
+        const u_int& _size = static_cast<u_int>(_data.size());
         const Vector2f& _shapeSize = { 20.0f, 20.0f };
         
 
@@ -54,17 +56,26 @@ void Level::Generate()
 
 void Level::SpawnEntity(const Vector2f& _shapeSize, const char _symbol, const u_int& _j, const u_int& _i)
 {
-    map<char, string> _textureDatabase =
+    map<char, function<Entity*()>> _textureDatabase =
     {
-        {'#', "Walls/Wall"},
-        { '.', "Foods/Point" },
-        { '*', "Foods/Apple"},
-        { 'C', "Pacman/Moving/PacMan_Eating_1" },
-        { 'G', "Ghosts/Blue/BlueGhost_Vulnerable"}
+        {'#', [&]() {
+            return new Entity("Walls/Wall", _shapeSize);
+        }},
+        { '.', [&]() {
+            return new Entity("Foods/Point" , _shapeSize);
+        }},
+        { '*', [&]() {
+            return new Entity("Foods/Apple" , _shapeSize);
+        }},
+        { 'C',  [&]() {
+            return new PacMan("Pacman/Moving/PacMan_Eating_1" , _shapeSize);
+        }},
+        { 'G', [&]() {
+            return new Entity("Ghosts/Blue/BlueGhost_Vulnerable" , _shapeSize);
+        }}
     };
 
-    const string& _appareancePath = _textureDatabase[_symbol];
-    Entity* _entity = new Entity(_appareancePath, _shapeSize);
+    Entity* _entity = _textureDatabase[_symbol]();
     PlaceEntity(_j, _shapeSize, _i, _entity);
     entities.push_back(_entity);
 }

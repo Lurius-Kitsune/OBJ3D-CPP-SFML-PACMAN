@@ -30,6 +30,13 @@ int main()
     return EXIT_SUCCESS;
 }
 
-// 1- Lecture de fichier .txt
-// 2- Generation des Entité
-// 3- Boucle affichage Entité
+/*
+* 
+* // 1- Lecture de fichier .txt
+  // 2- Generation des Entité
+  // 3- Boucle affichage Entité
+* --
+* Jeux:
+* 
+* 
+*/

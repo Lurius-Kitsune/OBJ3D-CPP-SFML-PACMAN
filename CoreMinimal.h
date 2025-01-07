@@ -2,6 +2,7 @@
 
 #include <iostream>
 #include <vector>
+#include <functional>
 #include <map>
 #include <fstream>
 #include <SFML/Graphics.hpp>
