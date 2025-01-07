@@ -9,7 +9,10 @@ class Level
 	vector<Entity*> entities;
 
 public:
-
+	const INLINE vector<Entity*> GetEntities() const
+	{
+		return entities;
+	}
 public:
 	Level(const string& _name);
 	~Level();

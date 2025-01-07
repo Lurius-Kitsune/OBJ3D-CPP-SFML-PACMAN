@@ -8,5 +8,11 @@ class Entity
 	Vector2i coords;
 
 public:
+	const INLINE RectangleShape GetShape()const
+	{
+		return shape;
+	}
+
+public:
 	Entity(const string& _name);
 };
