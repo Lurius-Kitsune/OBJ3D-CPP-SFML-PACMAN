@@ -6,7 +6,7 @@ int main()
     // Crée une fenêtre avec une taille et un titre
    // Fenetre de rendu
    // Plusieur mode de rendu
-    RenderWindow _window(VideoMode({ 200, 200 }), "Pac Man");
+    RenderWindow _window(VideoMode(_level.GetMapSize()), "Pac Man");
 
     /*CircleShape _shape(100.f);
     _shape.setFillColor(Color::Green);*/
@@ -22,12 +22,6 @@ int main()
         }
 
         _window.clear();
-        //_window.draw(_shape);
-
-        /*for (Entity* _entity : _level.GetEntities())
-        {
-            _window.draw(_entity->GetShape());
-        }*/
         _level.Display(_window);
         _window.display();
     }

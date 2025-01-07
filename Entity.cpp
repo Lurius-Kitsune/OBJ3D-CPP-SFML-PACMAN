@@ -1,8 +1,8 @@
 #include "Entity.h"
 #include "TextureManager.h"
-Entity::Entity(const string& _name)
+Entity::Entity(const string& _name, const Vector2f& _shapeSize)
 {
-	shapeSize = Vector2f(20.0f, 20.0f);
+	shapeSize = _shapeSize;
 	shape = RectangleShape(shapeSize);
 	TextureManager::GetInstance().InitShape(shape, texture, _name);
 }
