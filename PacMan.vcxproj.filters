@@ -27,12 +27,6 @@
     <ClCompile Include="Main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Map.cpp">
-      <Filter>Script\Map</Filter>
-    </ClCompile>
-    <ClCompile Include="Tile.cpp">
-      <Filter>Script\Map\Tile</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Singleton.h">
@@ -41,16 +35,10 @@
     <ClInclude Include="CoreMinimal.h">
       <Filter>Resource Files</Filter>
     </ClInclude>
-    <ClInclude Include="Map.h">
-      <Filter>Script\Map</Filter>
-    </ClInclude>
-    <ClInclude Include="Tile.h">
-      <Filter>Script\Map\Tile</Filter>
-    </ClInclude>
-    <ClInclude Include="TextureAssets.h">
+    <ClInclude Include="Logger.h">
       <Filter>Resource Files</Filter>
     </ClInclude>
-    <ClInclude Include="Logger.h">
+    <ClInclude Include="FileLoader.h">
       <Filter>Resource Files</Filter>
     </ClInclude>
   </ItemGroup>

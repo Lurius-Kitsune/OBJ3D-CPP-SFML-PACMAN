@@ -1,6 +1,6 @@
 #pragma once
-#include "CoreMinimal.h";
-#include "Singleton.h";
+#include "CoreMinimal.h"
+#include "Singleton.h"
 
 struct Logger : public Singleton<Logger>
 {
