@@ -2,7 +2,13 @@
 #include "Level.h"
 int main()
 {
+    // THOMAS A FAIT SA!
+    #pragma warning (push)
+    #pragma warning (disable: 4275)
+    // ====
+
     Level _level = Level("SmallMap");
+
     // Crée une fenêtre avec une taille et un titre
    // Fenetre de rendu
    // Plusieur mode de rendu
@@ -25,8 +31,6 @@ int main()
         _level.Display(_window);
         _window.display();
     }
-
-
     return EXIT_SUCCESS;
 }
 
