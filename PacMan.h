@@ -10,7 +10,7 @@ class PacMan : public Entity
 	LifeCoponent* life;
 
 public:
-	MovementComponent* GetMovementComponent()const
+	INLINE MovementComponent* GetMovementComponent()const
 	{
 		return movement;
 	}

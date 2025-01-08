@@ -9,8 +9,6 @@ void InputManager::ConsumeInput(RenderWindow& _window)
             _window.close();
         }
 
-
-
         else if (const KeyPressed* _key = _event->getIf<KeyPressed>())
         {
             if (callbacks.contains(_key->code))

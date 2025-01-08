@@ -4,7 +4,6 @@
 
 class ColiderComponent : public Component
 {
-	int speed;
 
 public:
 	ColiderComponent(Entity* _owner);
