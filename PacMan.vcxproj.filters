@@ -78,11 +78,11 @@
     <ClCompile Include="PacMan.cpp">
       <Filter>Game\Entity\Pacman</Filter>
     </ClCompile>
-    <ClCompile Include="Ghost.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Game.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Ghost.cpp">
+      <Filter>Game\Entity\Ghost</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

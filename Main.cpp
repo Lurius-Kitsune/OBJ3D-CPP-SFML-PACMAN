@@ -20,6 +20,10 @@ int main()
 * --
 * Jeux:
 * - Input Manager
-* - Collider
+* 
+* ----
+* Collider :
+* 1. SpawnEntity prend les 
+* 
 * 
 */
