@@ -28,6 +28,6 @@ void MovementComponent::Rotate(const Vector2i& _newDirection)
 	RectangleShape& _shape = owner->GetShape();
 
 	const float _angle = _newDirection.y != 0 ? 90.0f * _newDirection.y :
-		_newDirection.y < 0 ? 180.0f : 0.0f;
+		_newDirection.x < 0 ? 180.0f : 0.0f;
 	_shape.setRotation(degrees(_angle));
 }
