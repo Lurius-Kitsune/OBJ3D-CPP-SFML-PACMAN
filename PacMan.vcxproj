@@ -157,6 +157,7 @@ xcopy /y /d  ".\lib\prog1Dll\dll\Prog1Lib.dll" "$(OutDir)"
     <ClCompile Include="Component.cpp" />
     <ClCompile Include="Entity.cpp" />
     <ClCompile Include="FileLoader.cpp" />
+    <ClCompile Include="Food.cpp" />
     <ClCompile Include="InputManager.cpp" />
     <ClCompile Include="Level.cpp" />
     <ClCompile Include="LifeComponent.cpp" />
@@ -172,6 +173,7 @@ xcopy /y /d  ".\lib\prog1Dll\dll\Prog1Lib.dll" "$(OutDir)"
     <ClInclude Include="CoreMinimal.h" />
     <ClInclude Include="Entity.h" />
     <ClInclude Include="FileLoader.h" />
+    <ClInclude Include="Food.h" />
     <ClInclude Include="InputManager.h" />
     <ClInclude Include="Level.h" />
     <ClInclude Include="LifeComponent.h" />

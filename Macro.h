@@ -1,4 +1,5 @@
 #pragma once
+#include "Object.h"
 
 #define new new(_NORMAL_BLOCK, __FILE__, __LINE__)
 #define SLEEP(_time) sf::sleep(Time(_time))
@@ -14,3 +15,4 @@
 #else
 #define InitUTF8 locale::global(locale("fr-FR"))
 #endif
+

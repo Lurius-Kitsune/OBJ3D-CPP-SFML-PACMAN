@@ -23,6 +23,7 @@ public:
 
 public:
 	virtual void Update() override;
+	void AddPoint(const int _points);
 private:
 	void SetupInput();
 

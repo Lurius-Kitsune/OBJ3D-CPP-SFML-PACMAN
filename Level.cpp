@@ -7,6 +7,7 @@ Level::Level(const string& _name, RenderWindow* _window)
 	name = _name;
     prefixPath = "Assets/Maps/";
     window = _window;
+    points = 0;
     Generate();
 }
 
@@ -35,6 +36,11 @@ Entity* Level::CheckCollision(const Vector2f& _targetPosition)
     }
 
     return nullptr;
+}
+
+void Level::AddScore(const int _points)
+{
+    points += _points;
 }
 
 void Level::Display() const

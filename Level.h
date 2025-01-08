@@ -11,6 +11,7 @@ class Level
 	vector<Entity*> entities;
 	Vector2u mapSize;
 	RenderWindow* window;
+	int points;
 
 public:
 	INLINE Vector2u GetMapSize()const
@@ -24,8 +25,8 @@ public:
 
 public:
 	void Update();
-
 	Entity* CheckCollision(const Vector2f& _targetPosition);
+	void AddScore(const int _points);
 
 private:
 	void Generate();

@@ -20,6 +20,11 @@ void PacMan::Update()
 	life->Update();
 }
 
+void PacMan::AddPoint(const int _points)
+{
+	level->AddScore(_points);
+}
+
 void PacMan::SetupInput()
 {
 	InputManager& _inputManager = InputManager::GetInstance();

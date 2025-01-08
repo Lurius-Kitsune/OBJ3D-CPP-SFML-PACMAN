@@ -6,11 +6,14 @@
 
 class Entity : public Object
 {
-	Level* level;
+
 	Vector2f shapeSize;
 	RectangleShape shape;
 	Texture texture;
 	CollisionComponent* collision;
+
+protected:
+	Level* level;
 
 public:
 	INLINE Level* GetLevel()const
