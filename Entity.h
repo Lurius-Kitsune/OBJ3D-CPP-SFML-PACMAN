@@ -5,7 +5,7 @@ class ColiderComponent;
 
 class Entity
 {
-	//u_int zOffset;
+	u_int zOffset;
 	Vector2f shapeSize;
 	RectangleShape shape;
 	Texture texture;
@@ -29,13 +29,13 @@ public:
 	}
 
 
-	/*INLINE u_int GetOffset()const
+	INLINE u_int GetOffset()const
 	{
 		return zOffset;
-	}*/
+	}
 
 public:
-	Entity(const string& _name, const Vector2f& _shapeSize);
+	Entity(const string& _name, const Vector2f& _shapeSize, const u_int& _zOffset);
 
 	virtual ~Entity();
 };

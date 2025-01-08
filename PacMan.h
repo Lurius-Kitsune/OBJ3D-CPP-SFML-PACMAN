@@ -16,7 +16,7 @@ public:
 	}
 
 public:
-	PacMan(const string& _name, const Vector2f& _shapeSize);
+	PacMan(const string& _name, const Vector2f& _shapeSize, const u_int& _zOffset);
 	~PacMan();
 
 private:
