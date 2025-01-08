@@ -93,13 +93,13 @@ void Level::SpawnEntity(const Vector2f& _shapeSize, const char _symbol, const u_
             return new Food(this,"Foods/Point" , _shapeSize, FT_EATABLE, 10);
         }},
         { '*', [&]() {
-            return new Food(this,"Foods/Apple" , _shapeSize,  FT_APPLE, 100);
+            return new Food(this,"Foods/Apple" , _shapeSize,  FT_EATABLE, 100);
         }},
         { 'C',  [&]() {
             return new PacMan(this,"Pacman/Moving/PacMan_Eating_1" , _shapeSize);
         }},
         { 'G', [&]() {
-            return new Food(this,"Ghosts/Blue/BlueGhost_Vulnerable" , _shapeSize, FT_GHOST, 1000);
+            return new Food(this,"Ghosts/Blue/BlueGhost_Vulnerable" , _shapeSize, FT_EATABLE, 1000);
         }}
     };
 
