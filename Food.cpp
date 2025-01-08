@@ -9,13 +9,10 @@ Food::Food(Level* _level, const string& _name, const Vector2f& _shapeSize, const
 
 void Food::Eat(Entity* _entity)
 {
-	if (type == FT_EATABLE)
+	if (PacMan* _pacMan = Cast<PacMan>(_entity))
 	{
-		if (PacMan* _pacMan = Cast<PacMan>(_entity))
-		{
-			_pacMan->AddPoint(points);
-			shape.setScale(Vector2f());
-			type = FT_COUNT;
-		}
+		_pacMan->AddPoint(points);
+		shape.setScale(Vector2f());
+		type = FT_COUNT;
 	}
 }
