@@ -10,7 +10,7 @@ public:
 	virtual void Stop();
 
 	template <typename Type>
-	Type Cast(Object* _object)
+	Type* Cast(Object* _object)
 	{
 		return dynamic_cast<Type*>(_object);
 	}

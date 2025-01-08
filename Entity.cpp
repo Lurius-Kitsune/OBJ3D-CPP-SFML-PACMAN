@@ -2,7 +2,7 @@
 #include "TextureManager.h"
 
 Entity::Entity(Level* _level, const string& _name, const Vector2f& _shapeSize,
-	const CollisionType& _type, const function<void()>& _callback)
+	const CollisionType& _type, const function<void(Entity* _entity)>& _callback)
 {
 	level = _level;
 	shapeSize = _shapeSize;

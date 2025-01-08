@@ -8,11 +8,11 @@ class Entity : public Object
 {
 
 	Vector2f shapeSize;
-	RectangleShape shape;
 	Texture texture;
 	CollisionComponent* collision;
 
 protected:
+	RectangleShape shape;
 	Level* level;
 
 public:
@@ -48,7 +48,7 @@ public:
 
 public:
 	Entity(Level* _level, const string& _name, const Vector2f& _shapeSize,
-		const CollisionType& _type = CT_BLOCK, const function<void()>& _callback = {});
+		const CollisionType& _type = CT_BLOCK, const function<void(Entity* _entity)>& _callback = {});
 
 	virtual ~Entity();
 

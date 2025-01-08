@@ -1,6 +1,7 @@
 #include "Level.h"
 #include "FileLoader.h"
 #include "PacMan.h"
+#include "Food.h"
 
 Level::Level(const string& _name, RenderWindow* _window)
 {
@@ -89,16 +90,16 @@ void Level::SpawnEntity(const Vector2f& _shapeSize, const char _symbol, const u_
             return new Entity(this, "Walls/Wall", _shapeSize, CT_BLOCK);
         }},
         { '.', [&]() {
-            return new Entity(this,"Foods/Point" , _shapeSize, CT_OVERLAP, []() {});
+            return new Food(this,"Foods/Point" , _shapeSize, FT_EATABLE, 10);
         }},
         { '*', [&]() {
-            return new Entity(this,"Foods/Apple" , _shapeSize, CT_OVERLAP, []() {});
+            return new Food(this,"Foods/Apple" , _shapeSize,  FT_APPLE, 100);
         }},
         { 'C',  [&]() {
             return new PacMan(this,"Pacman/Moving/PacMan_Eating_1" , _shapeSize);
         }},
         { 'G', [&]() {
-            return new Entity(this,"Ghosts/Blue/BlueGhost_Vulnerable" , _shapeSize, CT_OVERLAP, []() {});
+            return new Food(this,"Ghosts/Blue/BlueGhost_Vulnerable" , _shapeSize, FT_GHOST, 1000);
         }}
     };
 

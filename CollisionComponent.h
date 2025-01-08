@@ -14,10 +14,10 @@ enum CollisionType
 class CollisionComponent : public Component
 {
 	CollisionType type;
-	function<void()> callback;
+	function<void(Entity* _entity)> callback;
 
 public:
-	CollisionComponent(const CollisionType& _type, const function<void()>& _callback , Entity * _owner);
+	CollisionComponent(const CollisionType& _type, const function<void(Entity* _entity)>& _callback , Entity * _owner);
 public:
-	bool Collide();
+	bool Collide(Entity* _entity);
 };
