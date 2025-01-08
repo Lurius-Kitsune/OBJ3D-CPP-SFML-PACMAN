@@ -1,5 +1,6 @@
 #include "Game.h"
 #include "InputManager.h"
+
 Game::Game()
 {
 	availableLevel =
@@ -21,14 +22,19 @@ Game::~Game()
 
 void Game::Launch()
 {
-	windowGame = RenderWindow(VideoMode(selectedLevel->GetMapSize()), "Pac Man");
+	windowGame = RenderWindow(VideoMode(Vector2u(MAP_SIZE_X * TILE_SIZE, MAP_SIZE_Y * TILE_SIZE)), "Pac Man");
+	Loop();
+}
 
+void Game::Loop()
+{
 	while (windowGame.isOpen())
 	{
 		InputManager::GetInstance().ConsumeInput(windowGame);
 
 		windowGame.clear();
-		selectedLevel->Display(windowGame);
+		selectedLevel->Update();
 		windowGame.display();
+		SLEEP(500ms);
 	}
 }

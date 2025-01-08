@@ -3,6 +3,10 @@
 #include "Singleton.h"
 #include "Level.h"
 
+#define MAP_SIZE_X 28
+#define MAP_SIZE_Y 12
+#define TILE_SIZE 20
+
 enum LevelSize
 {
 	LS_SMALL,
@@ -19,9 +23,17 @@ class Game : public Singleton<Game>
 	RenderWindow windowGame;
 
 public:
+	RenderWindow& GetWindow()
+	{
+		return windowGame;
+	}
+
+public:
 	Game();
 	~Game();
 
 public:
 	void Launch();
+
+	void Loop();
 };

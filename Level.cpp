@@ -2,12 +2,12 @@
 #include "FileLoader.h"
 #include "PacMan.h"
 #include "Food.h"
+#include "Game.h"
 
-Level::Level(const string& _name, RenderWindow* _window)
+Level::Level(const string& _name)
 {
 	name = _name;
     prefixPath = "Assets/Maps/";
-    window = _window;
     points = 0;
     Generate();
 }
@@ -48,7 +48,7 @@ void Level::Display() const
 {
     for (Entity* _entity : entities)
     {
-        window->draw(_entity->GetShape());
+        Game::GetInstance().GetWindow().draw(_entity->GetShape());
     }
 }
 
