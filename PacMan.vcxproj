@@ -162,6 +162,7 @@ xcopy /y /d  ".\lib\prog1Dll\dll\Prog1Lib.dll" "$(OutDir)"
     <ClCompile Include="LifeComponent.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="MovementComponent.cpp" />
+    <ClCompile Include="Object.cpp" />
     <ClCompile Include="PacMan.cpp" />
     <ClCompile Include="TextureManager.cpp" />
   </ItemGroup>
@@ -177,6 +178,7 @@ xcopy /y /d  ".\lib\prog1Dll\dll\Prog1Lib.dll" "$(OutDir)"
     <ClInclude Include="Logger.h" />
     <ClInclude Include="Macro.h" />
     <ClInclude Include="MovementComponent.h" />
+    <ClInclude Include="Object.h" />
     <ClInclude Include="PacMan.h" />
     <ClInclude Include="Singleton.h" />
     <ClInclude Include="TextureManager.h" />

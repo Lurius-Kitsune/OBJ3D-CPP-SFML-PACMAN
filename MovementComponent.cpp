@@ -5,11 +5,16 @@ MovementComponent::MovementComponent(Entity* _owner) : Component(_owner)
 	speed = 1;
 }
 
-void MovementComponent::Move(const Vector2i& _direction)
+void MovementComponent::Update()
 {
-	cout << _direction.x << "->" << _direction.y << endl;
-	const float _x = _direction.x * speed * owner->GetShapeSize().x;
-	const float _y = _direction.y * speed * owner->GetShapeSize().y;
+	Move();
+}
+
+void MovementComponent::Move()
+{
+	cout << direction.x << "->" << direction.y << endl;
+	const float _x = direction.x * speed * owner->GetShapeSize().x;
+	const float _y = direction.y * speed * owner->GetShapeSize().y;
 	owner->GetShape().move(Vector2f(_x, _y));
 }
 

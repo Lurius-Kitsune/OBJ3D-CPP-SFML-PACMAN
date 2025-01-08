@@ -1,7 +1,7 @@
 #pragma once
 #include "CoreMinimal.h"
 #include "Entity.h"
-class Component
+class Component : public Object
 {
 protected:
 	Entity* owner;
@@ -13,4 +13,7 @@ public:
 	}
 public:
 	Component(Entity* _owner);
+
+public:
+	virtual void Update() override;
 };

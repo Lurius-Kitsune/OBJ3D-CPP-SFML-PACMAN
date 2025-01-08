@@ -17,9 +17,9 @@ PacMan::~PacMan()
 void PacMan::SetupInput()
 {
 	InputManager& _inputManager = InputManager::GetInstance();
-	_inputManager.BindAction(Code::Z, [&](){ movement->Move(Vector2i(0,-1)); });
-	_inputManager.BindAction(Code::S, [&](){ movement->Move(Vector2i(0, 1)); });
-	_inputManager.BindAction(Code::Q, [&](){ movement->Move(Vector2i(-1, 0)); });
-	_inputManager.BindAction(Code::D, [&](){ movement->Move(Vector2i(1, 0)); });
+	_inputManager.BindAction(Code::Z, [&](){ movement->SetDirection(Vector2i(0,-1)); });
+	_inputManager.BindAction(Code::S, [&](){ movement->SetDirection(Vector2i(0, 1)); });
+	_inputManager.BindAction(Code::Q, [&](){ movement->SetDirection(Vector2i(-1, 0)); });
+	_inputManager.BindAction(Code::D, [&](){ movement->SetDirection(Vector2i(1, 0)); });
 }
 

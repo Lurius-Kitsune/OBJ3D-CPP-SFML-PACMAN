@@ -6,3 +6,7 @@ Entity::Entity(const string& _name, const Vector2f& _shapeSize)
 	shape = RectangleShape(shapeSize);
 	TextureManager::GetInstance().InitShape(shape, texture, _name);
 }
+
+void Entity::Update()
+{
+}

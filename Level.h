@@ -8,6 +8,7 @@ class Level
 	string prefixPath;
 	vector<Entity*> entities;
 	Vector2u mapSize;
+	RenderWindow* window;
 
 public:
 	const INLINE Vector2u GetMapSize()const
@@ -26,14 +27,15 @@ public:
 		}
 	}
 public:
-	Level(const string& _name);
+	Level(const string& _name, RenderWindow* _window);
 	~Level();
 
 public:
-	void Display(RenderWindow& _window) const;
+	void Update();
 
 private:
 	void Generate();
 	void SpawnEntity(const Vector2f& _shapeSize, const char _symbol, const u_int& _j, const u_int& _i);
 	void PlaceEntity(const u_int& _j, const Vector2f& _shapeSize, const u_int& _i, Entity* _entity);
+	void Display() const;
 };

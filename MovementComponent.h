@@ -5,10 +5,21 @@
 class MovementComponent : public Component
 {
 	int speed;
+	Vector2i direction;
+
+public:
+	INLINE void SetDirection(const Vector2i& _direction)
+	{
+		direction = _direction;
+		Rotate();
+	}
 
 public:
 	MovementComponent(Entity* _owner);
-public:
-	void Move(const Vector2i& _direction);
+
+private : 
+	virtual void Update() override;
+	void Move();
 	void Rotate();
+
 };

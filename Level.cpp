@@ -2,10 +2,11 @@
 #include "FileLoader.h"
 
 
-Level::Level(const string& _name)
+Level::Level(const string& _name, RenderWindow* _window)
 {
 	name = _name;
     prefixPath = "Assets/Maps/";
+    window = _window;
     Generate();
 }
 
@@ -17,11 +18,20 @@ Level::~Level()
     }
 }
 
-void Level::Display(RenderWindow& _window) const
+void Level::Update()
 {
     for (Entity* _entity : entities)
     {
-        _window.draw(_entity->GetShape());
+        _entity->Update();
+    }
+    Display();
+}
+
+void Level::Display() const
+{
+    for (Entity* _entity : entities)
+    {
+        window->draw(_entity->GetShape());
     }
 }
 

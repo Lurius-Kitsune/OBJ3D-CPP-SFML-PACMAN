@@ -3,16 +3,16 @@
 #include "InputManager.h"
 int main()
 {
-
-    Level _level = Level("SmallMap");
-    RenderWindow _window(VideoMode(_level.GetMapSize()), "Pac Man");
+    
+    RenderWindow _window(VideoMode(), "Pac Man");
+    Level _level = Level("SmallMap", &_window);
 
     while (_window.isOpen())
     {
         InputManager::GetInstance().ConsumeInput(_window);
 
         _window.clear();
-        _level.Display(_window);
+        _level.Update();
         _window.display();
     }
     return EXIT_SUCCESS;

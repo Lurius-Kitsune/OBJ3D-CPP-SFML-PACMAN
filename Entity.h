@@ -1,6 +1,7 @@
 #pragma once
 #include "CoreMinimal.h"
-class Entity
+#include "Object.h"
+class Entity : public Object
 {
 	Vector2f shapeSize;
 	RectangleShape shape;
@@ -27,4 +28,7 @@ public:
 	Entity(const string& _name, const Vector2f& _shapeSize);
 
 	virtual ~Entity() = default;
+
+public:
+	virtual void Update() override;
 };
