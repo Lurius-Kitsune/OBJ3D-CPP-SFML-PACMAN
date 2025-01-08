@@ -18,6 +18,11 @@ public:
 		return shape;
 	}
 
+	INLINE Vector2f GetShapeSize() const
+	{
+		return shapeSize;
+	}
+
 public:
 	Entity(const string& _name, const Vector2f& _shapeSize);
 

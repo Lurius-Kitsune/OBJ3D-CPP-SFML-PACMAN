@@ -49,9 +49,9 @@ void Level::Generate()
         mapSize = Vector2u(static_cast<unsigned>(_data[0].size() * _shapeSize.x), 
             static_cast<unsigned>(_data.size() * _shapeSize.y));
     }
-    catch (const exception& _ex)
+    catch (const exception& _error)
     {
-        cout << _ex.what() << endl;
+        cout << _error.what() << endl;
     }
 }
 
