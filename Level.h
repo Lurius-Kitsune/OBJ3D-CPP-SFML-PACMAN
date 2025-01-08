@@ -11,12 +11,12 @@ class Level
 	RenderWindow* window;
 
 public:
-	const INLINE Vector2u GetMapSize()const
+	INLINE Vector2u GetMapSize()const
 	{
 		return mapSize;
 	}
 
-	const INLINE PacMan* GetPacMan()const
+	INLINE PacMan* GetPacMan()const
 	{
 		for (Entity* _entity : entities)
 		{
@@ -32,6 +32,8 @@ public:
 
 public:
 	void Update();
+
+	Entity* CheckCollision(const Vector2f& _targetPosition);
 
 private:
 	void Generate();

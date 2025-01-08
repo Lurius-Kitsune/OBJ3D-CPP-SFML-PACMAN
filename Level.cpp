@@ -27,6 +27,11 @@ void Level::Update()
     Display();
 }
 
+Entity* Level::CheckCollision(const Vector2f& _targetPosition)
+{
+
+}
+
 void Level::Display() const
 {
     for (Entity* _entity : entities)
