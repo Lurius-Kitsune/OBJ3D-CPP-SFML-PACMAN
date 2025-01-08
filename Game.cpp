@@ -11,7 +11,6 @@ Game::Game()
 	};
 	selectedLevel = availableLevel[0];
 	ColiderManager::GetInstance().SetSelectedLevel(selectedLevel);
-	Launch();
 }
 
 Game::~Game()

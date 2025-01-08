@@ -154,7 +154,6 @@ xcopy /y /d  ".\lib\prog1Dll\dll\Prog1Lib.dll" "$(OutDir)"
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="ColiderComponent.cpp" />
-    <ClCompile Include="ColiderManager.h" />
     <ClCompile Include="Component.cpp" />
     <ClCompile Include="Entity.cpp" />
     <ClCompile Include="FileLoader.cpp" />
