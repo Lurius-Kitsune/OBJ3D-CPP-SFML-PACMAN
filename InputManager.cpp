@@ -11,9 +11,9 @@ void InputManager::ConsumeInput(RenderWindow& _window)
 
         else if (const KeyPressed* _key = _event->getIf<KeyPressed>())
         {
-            if (callbacks.contains(_key->code))
+            for (const InputData& _inputData : callbacks )
             {
-                callbacks[_key->code]();
+                if (_inputData.TryToExecute(_key)) break;
             }
         }
     }
@@ -21,7 +21,12 @@ void InputManager::ConsumeInput(RenderWindow& _window)
 
 void InputManager::BindAction(const Code& _code, const function<void()>& _callback)
 {
-    callbacks.insert({ _code, _callback });
+    callbacks.push_back(InputData(_callback, { _code }));
+}
+
+void InputManager::BindAction(const vector<Code>& _codes, const function<void()>& _callback)
+{
+    callbacks.push_back(InputData(_callback, _codes, _codes.empty()));
 }
 
 void InputManager::CloseWindow(RenderWindow& _window)
