@@ -3,7 +3,7 @@
 #include "InputManager.h"
 
 #define MAP_SIZE_X 28
-#define MAP_SIZE_Y 28
+#define MAP_SIZE_Y 12
 #define TILE_SIZE 20
 
 int main()
@@ -19,6 +19,7 @@ int main()
         _window.clear();
         _level.Update();
         _window.display();
+        SLEEP(500ms);
     }
     return EXIT_SUCCESS;
 }

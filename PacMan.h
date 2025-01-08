@@ -4,6 +4,8 @@
 #include "MovementComponent.h"
 #include "LifeComponent.h"
 
+
+
 class PacMan : public Entity
 {
 	MovementComponent* movement;

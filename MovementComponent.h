@@ -4,14 +4,24 @@
 
 class MovementComponent : public Component
 {
+	bool canMove;
 	int speed;
 	Vector2i direction;
 
 public:
-	INLINE void SetDirection(const Vector2i& _direction)
+	INLINE void ToogleMoveStatus()
 	{
-		direction = _direction;
-		Rotate();
+		canMove = !canMove;
+	}
+
+	INLINE void SetDirection(const Vector2i& _newDirection)
+	{
+		if (!canMove) return;
+		if (_newDirection != direction)
+		{
+			Rotate(_newDirection);
+		}
+		direction = _newDirection;
 	}
 
 public:
@@ -22,6 +32,6 @@ public:
 
 private : 
 	void Move();
-	void Rotate();
+	void Rotate(const Vector2i& _newDirection);
 
 };

@@ -95,5 +95,5 @@ void Level::PlaceEntity(const u_int& _j, const Vector2f& _shapeSize, const u_int
 {
     const float _x = _j * _shapeSize.x;
     const float _y = _i * _shapeSize.y;
-    _entity->SetPosition(Vector2f(_x, _y));
+    _entity->SetPosition(Vector2f(_x, _y) + _shapeSize / 2.0f);
 }
