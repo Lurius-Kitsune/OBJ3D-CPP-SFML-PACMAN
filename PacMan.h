@@ -19,6 +19,8 @@ public:
 	PacMan(const string& _name, const Vector2f& _shapeSize);
 	~PacMan();
 
+public:
+	virtual void Update() override;
 private:
 	void SetupInput();
 

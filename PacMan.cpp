@@ -14,6 +14,12 @@ PacMan::~PacMan()
 	delete life;
 }
 
+void PacMan::Update()
+{
+	movement->Update();
+	life->Update();
+}
+
 void PacMan::SetupInput()
 {
 	InputManager& _inputManager = InputManager::GetInstance();

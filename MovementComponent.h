@@ -17,8 +17,10 @@ public:
 public:
 	MovementComponent(Entity* _owner);
 
-private : 
+public:
 	virtual void Update() override;
+
+private : 
 	void Move();
 	void Rotate();
 
