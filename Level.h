@@ -1,8 +1,10 @@
 #pragma once
 #include "CoreMinimal.h"
-#include "PacMan.h"
 
-class Level
+class PacMan;
+class Entity;
+
+class Level 
 {
 	string name;
 	string prefixPath;
@@ -16,16 +18,6 @@ public:
 		return mapSize;
 	}
 
-	INLINE PacMan* GetPacMan()const
-	{
-		for (Entity* _entity : entities)
-		{
-			if (PacMan* _pacman = dynamic_cast<PacMan*>(_entity))
-			{
-				return _pacman;
-			}
-		}
-	}
 public:
 	Level(const string& _name, RenderWindow* _window);
 	~Level();

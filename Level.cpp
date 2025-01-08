@@ -1,6 +1,6 @@
 #include "Level.h"
 #include "FileLoader.h"
-
+#include "PacMan.h"
 
 Level::Level(const string& _name, RenderWindow* _window)
 {
@@ -29,7 +29,10 @@ void Level::Update()
 
 Entity* Level::CheckCollision(const Vector2f& _targetPosition)
 {
-
+    for (Entity* _entity : entities)
+    {
+        if (_entity->GetPosition() == _targetPosition) return _entity;
+    }
 }
 
 void Level::Display() const
@@ -75,19 +78,19 @@ void Level::SpawnEntity(const Vector2f& _shapeSize, const char _symbol, const u_
     map<char, function<Entity*()>> _textureDatabase =
     {
         {'#', [&]() {
-            return new Entity("Walls/Wall", _shapeSize);
+            return new Entity(this, "Walls/Wall", _shapeSize);
         }},
         { '.', [&]() {
-            return new Entity("Foods/Point" , _shapeSize);
+            return new Entity(this,"Foods/Point" , _shapeSize);
         }},
         { '*', [&]() {
-            return new Entity("Foods/Apple" , _shapeSize);
+            return new Entity(this,"Foods/Apple" , _shapeSize);
         }},
         { 'C',  [&]() {
-            return new PacMan("Pacman/Moving/PacMan_Eating_1" , _shapeSize);
+            return new PacMan(this,"Pacman/Moving/PacMan_Eating_1" , _shapeSize);
         }},
         { 'G', [&]() {
-            return new Entity("Ghosts/Blue/BlueGhost_Vulnerable" , _shapeSize);
+            return new Entity(this,"Ghosts/Blue/BlueGhost_Vulnerable" , _shapeSize);
         }}
     };
 

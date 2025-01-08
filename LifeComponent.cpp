@@ -1,4 +1,5 @@
 #include "LifeComponent.h"
+#include "Entity.h"
 
 LifeCoponent::LifeCoponent(Entity* _owner) : Component(_owner)
 {

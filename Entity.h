@@ -1,15 +1,24 @@
 #pragma once
 #include "CoreMinimal.h"
 #include "Object.h"
+#include "Level.h"
+#include "CollisionComponent.h"
+
 class Entity : public Object
 {
+	Level* level;
 	Vector2f shapeSize;
 	RectangleShape shape;
 	Texture texture;
-	Vector2i coords;
+	CollisionComponent* collision;
 
 public:
-	const INLINE void SetPosition(const Vector2f& _position)
+	INLINE Level* GetLevel()const
+	{
+		return level;
+	}
+
+	INLINE void SetPosition(const Vector2f& _position)
 	{
 		shape.setPosition(_position);
 	}
@@ -24,10 +33,16 @@ public:
 		return shapeSize;
 	}
 
-public:
-	Entity(const string& _name, const Vector2f& _shapeSize);
+	INLINE Vector2f GetPosition() const
+	{
+		return shape.getPosition();
+	}
 
-	virtual ~Entity() = default;
+public:
+	Entity(Level* _level, const string& _name, const Vector2f& _shapeSize,
+		const CollisionType& _type = CT_BLOCK, const function<void()>& _callback = {});
+
+	virtual ~Entity();
 
 public:
 	virtual void Update() override;

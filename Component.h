@@ -1,10 +1,11 @@
 #pragma once
 #include "CoreMinimal.h"
-#include "Entity.h"
+#include "Object.h"
+
 class Component : public Object
 {
 protected:
-	Entity* owner;
+	class Entity* owner;
 
 public:
 	INLINE Entity* GetOwner() const

@@ -1,4 +1,5 @@
 #include "MovementComponent.h"
+#include "Entity.h"
 
 MovementComponent::MovementComponent(Entity* _owner) : Component(_owner) 
 {
@@ -16,10 +17,12 @@ void MovementComponent::Move()
 {
 	if (canMove)
 	{
-		cout << direction.x << "->" << direction.y << endl;
 		const float _x = direction.x * speed * owner->GetShapeSize().x;
 		const float _y = direction.y * speed * owner->GetShapeSize().y;
-		owner->GetShape().move(Vector2f(_x, _y));
+
+		const Vector2f& _destination = owner->GetShape().getPosition() + Vector2f(_x, _y);
+		if (owner->GetLevel()->CheckCollision(_destination));
+		owner->GetShape().setPosition(_destination);
 	}
 }
 

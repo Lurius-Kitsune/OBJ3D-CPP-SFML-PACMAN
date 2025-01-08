@@ -18,7 +18,7 @@ public:
 	}
 
 public:
-	PacMan(const string& _name, const Vector2f& _shapeSize);
+	PacMan(Level* _level, const string& _name, const Vector2f& _shapeSize);
 	~PacMan();
 
 public:
