@@ -2,7 +2,7 @@
 
 MovementComponent::MovementComponent(Entity* _owner) : Component(_owner) 
 {
-	speed = 6;
+	speed = 20;
 }
 
 void MovementComponent::Move(const Vector2i& _direction)

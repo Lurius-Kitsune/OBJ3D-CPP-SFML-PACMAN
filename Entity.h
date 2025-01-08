@@ -1,5 +1,8 @@
 #pragma once
 #include "CoreMinimal.h"
+
+class ColiderComponent;
+
 class Entity
 {
 	//u_int zOffset;
@@ -7,6 +10,7 @@ class Entity
 	RectangleShape shape;
 	Texture texture;
 	Vector2i coords;
+	ColiderComponent* colliderComponent;
 
 public:
 	INLINE void SetPosition(const Vector2f& _position)
@@ -33,5 +37,5 @@ public:
 public:
 	Entity(const string& _name, const Vector2f& _shapeSize);
 
-	virtual ~Entity() = default;
+	virtual ~Entity();
 };
