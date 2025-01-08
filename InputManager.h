@@ -4,7 +4,7 @@
 
 
 using KeyPressed = Event::KeyPressed;
-using Code = Keyboard::Scancode;
+using Code = Keyboard::Key;
 
 class InputManager : public Singleton<InputManager>
 {

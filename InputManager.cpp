@@ -13,9 +13,9 @@ void InputManager::ConsumeInput(RenderWindow& _window)
 
         else if (const KeyPressed* _key = _event->getIf<KeyPressed>())
         {
-            if (callbacks.contains(_key->scancode))
+            if (callbacks.contains(_key->code))
             {
-                callbacks[_key->scancode]();
+                callbacks[_key->code]();
             }
         }
     }
