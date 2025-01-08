@@ -19,5 +19,5 @@ class CollisionComponent : public Component
 public:
 	CollisionComponent(const CollisionType& _type, const function<void()>& _callback , Entity * _owner);
 public:
-	void Collide();
+	bool Collide();
 };

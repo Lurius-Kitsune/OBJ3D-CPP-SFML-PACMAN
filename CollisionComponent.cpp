@@ -7,3 +7,8 @@ CollisionComponent::CollisionComponent(const CollisionType& _type, const functio
 {
 
 }
+
+bool CollisionComponent::Collide()
+{
+	return type != CT_BLOCK;
+}

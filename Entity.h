@@ -38,6 +38,11 @@ public:
 		return shape.getPosition();
 	}
 
+	INLINE CollisionComponent* GetCollision() const
+	{
+		return collision;
+	}
+
 public:
 	Entity(Level* _level, const string& _name, const Vector2f& _shapeSize,
 		const CollisionType& _type = CT_BLOCK, const function<void()>& _callback = {});

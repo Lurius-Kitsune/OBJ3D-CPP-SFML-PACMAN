@@ -21,7 +21,11 @@ void MovementComponent::Move()
 		const float _y = direction.y * speed * owner->GetShapeSize().y;
 
 		const Vector2f& _destination = owner->GetShape().getPosition() + Vector2f(_x, _y);
-		if (owner->GetLevel()->CheckCollision(_destination));
+		if (Entity* _entity = owner->GetLevel()->CheckCollision(_destination))
+		{
+			if(_entity->GetCollision()->Collide())
+			return;
+		}
 		owner->GetShape().setPosition(_destination);
 	}
 }
