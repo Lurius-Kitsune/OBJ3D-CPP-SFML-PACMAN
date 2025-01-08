@@ -33,6 +33,8 @@ Entity* Level::CheckCollision(const Vector2f& _targetPosition)
     {
         if (_entity->GetPosition() == _targetPosition) return _entity;
     }
+
+    return nullptr;
 }
 
 void Level::Display() const
