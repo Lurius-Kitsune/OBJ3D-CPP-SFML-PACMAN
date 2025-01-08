@@ -4,7 +4,7 @@ PacMan::PacMan(const string& _name, const Vector2f& _shapeSize) : Entity(_name, 
 {
 	movement = new MovementComponent(this);
 	life = new LifeCoponent(this);
-
+	GetShape().setOrigin(_shapeSize / 2.0F);
 	SetupInput();
 }
 

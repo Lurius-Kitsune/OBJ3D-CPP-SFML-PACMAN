@@ -57,7 +57,7 @@ void Level::Generate()
 
 void Level::SpawnEntity(const Vector2f& _shapeSize, const char _symbol, const u_int& _j, const u_int& _i)
 {
-    map<char, function<Entity*()>> _textureDatabase =
+    std::map<char, function<Entity*()>> _textureDatabase =
     {
         {'#', [&]() {
             return new Entity("Walls/Wall", _shapeSize);
@@ -77,13 +77,13 @@ void Level::SpawnEntity(const Vector2f& _shapeSize, const char _symbol, const u_
     };
 
     Entity* _entity = _textureDatabase[_symbol]();
-    PlaceEntity(_j, _shapeSize, _i, _entity);
+    PlaceEntity(_j, _i, _entity);
     entities.push_back(_entity);
 }
 
-void Level::PlaceEntity(const u_int& _j, const Vector2f& _shapeSize, const u_int& _i, Entity* _entity)
+void Level::PlaceEntity(const u_int& _j, const u_int& _i, Entity* _entity)
 {
-    const float _x = _j * _shapeSize.x;
-    const float _y = _i * _shapeSize.y;
+    const float _x = _j * _entity->GetShapeSize().x;
+    const float _y = _i * _entity->GetShapeSize().y;
     _entity->SetPosition(Vector2f(_x, _y));
 }

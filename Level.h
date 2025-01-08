@@ -35,5 +35,5 @@ public:
 private:
 	void Generate();
 	void SpawnEntity(const Vector2f& _shapeSize, const char _symbol, const u_int& _j, const u_int& _i);
-	void PlaceEntity(const u_int& _j, const Vector2f& _shapeSize, const u_int& _i, Entity* _entity);
+	void PlaceEntity(const u_int& _j, const u_int& _i, Entity* _entity);
 };

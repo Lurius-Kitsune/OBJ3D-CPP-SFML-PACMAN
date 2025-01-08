@@ -4,9 +4,9 @@
 
 class ColiderComponent : public Component
 {
-
+	Vector2f collider;
 public:
 	ColiderComponent(Entity* _owner);
 public:
-	void Move(const Vector2i& _direction);
+
 };
