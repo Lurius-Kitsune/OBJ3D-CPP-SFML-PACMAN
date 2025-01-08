@@ -11,7 +11,7 @@ void InputManager::ConsumeInput(RenderWindow& _window)
 
         else if (const KeyPressed* _key = _event->getIf<KeyPressed>())
         {
-            for (const InputData& _inputData : callbacks )
+            for (const InputData& _inputData : inputDatas )
             {
                 if (_inputData.TryToExecute(_key)) break;
             }
@@ -19,14 +19,14 @@ void InputManager::ConsumeInput(RenderWindow& _window)
     }
 }
 
-void InputManager::BindAction(const Code& _code, const function<void()>& _callback)
+void InputManager::BindAction(const function<void()>& _callback, const Code& _code)
 {
-    callbacks.push_back(InputData(_callback, { _code }));
+    inputDatas.push_back(InputData(_callback, { _code }));
 }
 
-void InputManager::BindAction(const vector<Code>& _codes, const function<void()>& _callback)
+void InputManager::BindAction(const function<void()>& _callback, const vector<Code>& _codes)
 {
-    callbacks.push_back(InputData(_callback, _codes, _codes.empty()));
+    inputDatas.push_back(InputData(_callback, _codes, _codes.empty()));
 }
 
 void InputManager::CloseWindow(RenderWindow& _window)

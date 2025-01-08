@@ -23,10 +23,10 @@ void PacMan::Update()
 void PacMan::SetupInput()
 {
 	InputManager& _inputManager = InputManager::GetInstance();
-	_inputManager.BindAction(Code::Space, [&](){ movement->ToogleMoveStatus(); });
-	_inputManager.BindAction({ Code::Z, Code::Up }, [&]() { movement->SetDirection(Vector2i(0, -1)); });
-	_inputManager.BindAction({ Code::S, Code::Down }, [&](){ movement->SetDirection(Vector2i(0, 1)); });
-	_inputManager.BindAction({ Code::Q, Code::Left }, [&](){ movement->SetDirection(Vector2i(-1, 0)); });
-	_inputManager.BindAction({ Code::D, Code::Right }, [&](){ movement->SetDirection(Vector2i(1, 0)); });
+	_inputManager.BindAction([&](){ movement->ToogleMoveStatus(); }, Code::Space);
+	_inputManager.BindAction([&]() { movement->SetDirection(Vector2i(0, -1)); }, { Code::Z, Code::Up });
+	_inputManager.BindAction([&](){ movement->SetDirection(Vector2i(0, 1)); }, { Code::S, Code::Down });
+	_inputManager.BindAction([&](){ movement->SetDirection(Vector2i(-1, 0)); }, { Code::Q, Code::Left });
+	_inputManager.BindAction([&](){ movement->SetDirection(Vector2i(1, 0)); }, { Code::D, Code::Right });
 }
 

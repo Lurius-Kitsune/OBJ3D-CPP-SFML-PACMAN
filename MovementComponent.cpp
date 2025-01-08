@@ -5,7 +5,7 @@ MovementComponent::MovementComponent(Entity* _owner) : Component(_owner)
 {
 	canMove = 0;
 	speed = 1;
-	direction = Vector2i(0, 1);
+	direction = Vector2i(1, 0);
 }
 
 void MovementComponent::Update()
@@ -23,7 +23,7 @@ void MovementComponent::Move()
 		const Vector2f& _destination = owner->GetShape().getPosition() + Vector2f(_x, _y);
 		if (Entity* _entity = owner->GetLevel()->CheckCollision(_destination))
 		{
-			if(_entity->GetCollision()->Collide())
+			if(!_entity->GetCollision()->Collide())
 			return;
 		}
 		owner->GetShape().setPosition(_destination);
