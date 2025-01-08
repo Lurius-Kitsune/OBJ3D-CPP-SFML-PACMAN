@@ -37,6 +37,12 @@
     <Filter Include="Game\Entity\Component\Collider">
       <UniqueIdentifier>{b062126d-65eb-4f7c-94c4-67d79ad6646a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Game\Entity\Pacman">
+      <UniqueIdentifier>{ba6cba63-c392-4e44-bd80-b4130665b16e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Entity\Ghost">
+      <UniqueIdentifier>{ec68f6ad-731a-4b79-988e-4a2c878e8acd}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -63,14 +69,23 @@
     <ClCompile Include="Component.cpp">
       <Filter>Game\Entity\Component</Filter>
     </ClCompile>
-    <ClCompile Include="PacMan.cpp">
-      <Filter>Game\Entity</Filter>
-    </ClCompile>
     <ClCompile Include="InputManager.cpp">
       <Filter>Manager</Filter>
     </ClCompile>
     <ClCompile Include="TextureManager.cpp">
       <Filter>Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="PacMan.cpp">
+      <Filter>Game\Entity\Pacman</Filter>
+    </ClCompile>
+    <ClCompile Include="Ghost.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ColiderManager.h">
+      <Filter>Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="Game.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -104,9 +119,6 @@
     <ClInclude Include="MovementComponent.h">
       <Filter>Game\Entity\Component\Movement</Filter>
     </ClInclude>
-    <ClInclude Include="PacMan.h">
-      <Filter>Game\Entity</Filter>
-    </ClInclude>
     <ClInclude Include="ColiderComponent.h">
       <Filter>Game\Entity\Component\Collider</Filter>
     </ClInclude>
@@ -115,6 +127,15 @@
     </ClInclude>
     <ClInclude Include="TextureManager.h">
       <Filter>Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="PacMan.h">
+      <Filter>Game\Entity\Pacman</Filter>
+    </ClInclude>
+    <ClInclude Include="Ghost.h">
+      <Filter>Game\Entity\Ghost</Filter>
+    </ClInclude>
+    <ClInclude Include="Game.h">
+      <Filter>Game</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

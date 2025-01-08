@@ -1,6 +1,6 @@
 #include "Level.h"
 #include "FileLoader.h"
-
+#include "Ghost.h"
 
 Level::Level(const string& _name)
 {
@@ -62,6 +62,9 @@ void Level::SpawnEntity(const Vector2f& _shapeSize, const char _symbol, const u_
         {'#', [&]() {
             return new Entity("Walls/Wall", _shapeSize, 0);
         }},
+        {' ', [&]() {
+            return new Entity(" ", _shapeSize, 0);
+        }},
         { '.', [&]() {
             return new Entity("Foods/Point" , _shapeSize, 1);
         }},
@@ -72,7 +75,7 @@ void Level::SpawnEntity(const Vector2f& _shapeSize, const char _symbol, const u_
             return new PacMan("Pacman/Moving/PacMan_Eating_1" , _shapeSize, 2);
         }},
         { 'G', [&]() {
-            return new Entity("Ghosts/Blue/BlueGhost_Vulnerable" , _shapeSize, 3);
+            return new Ghost("Ghosts/Blue/BlueGhost_Vulnerable" , _shapeSize, 3);
         }}
     };
 
@@ -80,7 +83,7 @@ void Level::SpawnEntity(const Vector2f& _shapeSize, const char _symbol, const u_
     PlaceEntity(_j, _i, _entity);
     entities.push_back(_entity);
 
-    sort(entities.begin(), entities.end(), [&](Entity* _entity1, Entity* _entity2) {
+    sort(entities.begin(), entities.end(), [](Entity* _entity1, Entity* _entity2) {
         return _entity1->GetOffset() < _entity2->GetOffset();
         });
 }
