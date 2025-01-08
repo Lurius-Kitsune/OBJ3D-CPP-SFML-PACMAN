@@ -1,9 +1,10 @@
 #include "PacMan.h"
 #include "InputManager.h"
-PacMan::PacMan(Level* _level, const Vector2f& _shapeSize) : Entity(_level, "Pacman/PacMan_Moving", _shapeSize)
+PacMan::PacMan(Level* _level, const Vector2f& _shapeSize) : Entity(_level, _shapeSize)
 {
 	movement = new MovementComponent(this);
 	life = new LifeCoponent(this);
+	animation = new AnimationComponent(this, "Pacman/PacMan_Moving", 3, { 16, 16 }, { 0,0 }, SD_HORIZONTAL);
 
 	SetupInput();
 }
@@ -18,6 +19,7 @@ void PacMan::Update()
 {
 	movement->Update();
 	life->Update();
+	animation->NextStep();
 }
 
 void PacMan::AddPoint(const int _points)

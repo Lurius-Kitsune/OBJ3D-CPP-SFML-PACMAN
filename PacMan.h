@@ -3,6 +3,7 @@
 #include "Entity.h"
 #include "MovementComponent.h"
 #include "LifeComponent.h"
+#include "AnimationComponent.h"
 
 
 
@@ -10,6 +11,7 @@ class PacMan : public Entity
 {
 	MovementComponent* movement;
 	LifeCoponent* life;
+	AnimationComponent* animation;
 
 public:
 	INLINE MovementComponent* GetMovementComponent()const

@@ -31,6 +31,11 @@ public:
 		return shape;
 	}
 
+	INLINE Texture& GetTexture()
+	{
+		return texture;
+	}
+
 	INLINE Vector2f GetShapeSize() const
 	{
 		return shapeSize;
@@ -48,6 +53,9 @@ public:
 
 public:
 	Entity(Level* _level, const string& _name, const Vector2f& _shapeSize,
+		const CollisionType& _type = CT_BLOCK, const function<void(Entity* _entity)>& _callback = {});
+
+	Entity(Level* _level, const Vector2f& _shapeSize,
 		const CollisionType& _type = CT_BLOCK, const function<void(Entity* _entity)>& _callback = {});
 
 	virtual ~Entity();

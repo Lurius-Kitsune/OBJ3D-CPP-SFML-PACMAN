@@ -5,9 +5,9 @@ Game::Game()
 {
 	availableLevel =
 	{
-		new Level("SmallMap"),
-		new Level("ClassicMap"),
-		new Level("BigMap")
+		new Level("SmallMap", &windowGame),
+		new Level("ClassicMap",&windowGame),
+		new Level("BigMap",&windowGame)
 	};
 	selectedLevel = availableLevel[0];
 }
@@ -35,6 +35,6 @@ void Game::Loop()
 		windowGame.clear();
 		selectedLevel->Update();
 		windowGame.display();
-		SLEEP(500ms);
+		SLEEP(250ms);
 	}
 }

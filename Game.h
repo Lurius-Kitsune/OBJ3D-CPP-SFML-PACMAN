@@ -16,7 +16,7 @@ enum LevelSize
 	LS_COUNT
 };
 
-class Game : public Singleton<Game>
+class Game
 {
 	vector<Level*> availableLevel;
 	Level* selectedLevel;

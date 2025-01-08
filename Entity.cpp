@@ -12,6 +12,16 @@ Entity::Entity(Level* _level, const string& _name, const Vector2f& _shapeSize,
 	collision = new CollisionComponent(_type, _callback, this);
 }
 
+Entity::Entity(Level* _level, const Vector2f& _shapeSize,
+	const CollisionType& _type, const function<void(Entity* _entity)>& _callback)
+{
+	level = _level;
+	shapeSize = _shapeSize;
+	shape = RectangleShape(shapeSize);
+	shape.setOrigin(_shapeSize / 2.0f);
+	collision = new CollisionComponent(_type, _callback, this);
+}
+
 Entity::~Entity()
 {
 	delete collision;

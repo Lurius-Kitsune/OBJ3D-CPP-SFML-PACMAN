@@ -10,6 +10,7 @@ class Level
 	string prefixPath;
 	vector<Entity*> entities;
 	Vector2u mapSize;
+	RenderWindow* window;
 	int points;
 
 public:
@@ -19,7 +20,7 @@ public:
 	}
 
 public:
-	Level(const string& _name);
+	Level(const string& _name, RenderWindow* _window);
 	~Level();
 
 public:
