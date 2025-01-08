@@ -21,8 +21,23 @@ void Level::Display(RenderWindow& _window) const
 {
     for (Entity* _entity : entities)
     {
-        _window.draw(_entity->GetShape());
+        if (_entity)
+        {
+            _window.draw(_entity->GetShape());
+        }
     }
+}
+
+Entity* Level::CheckColider(ColiderComponent* _dealerColider)
+{
+    for (Entity* _entity : entities)
+    {
+        if (_entity)
+        {
+            if(_dealerColider.is)
+        }
+    }
+    return nullptr;
 }
 
 void Level::Generate()
@@ -60,16 +75,19 @@ void Level::SpawnEntity(const Vector2f& _shapeSize, const char _symbol, const u_
     std::map<char, function<Entity*()>> _textureDatabase =
     {
         {'#', [&]() {
-            return new Entity("Walls/Wall", _shapeSize, 0);
+            return new Entity("Walls/Wall", _shapeSize, 0, true);
         }},
         {' ', [&]() {
-            return new Entity(" ", _shapeSize, 0);
+            return nullptr;
+        }},
+        {'|', [&]() {
+            return nullptr;
         }},
         { '.', [&]() {
-            return new Entity("Foods/Point" , _shapeSize, 1);
+            return new Entity("Foods/Point" , _shapeSize, 1, false);
         }},
         { '*', [&]() {
-            return new Entity("Foods/Apple" , _shapeSize, 1);
+            return new Entity("Foods/Apple" , _shapeSize, 1, false);
         }},
         { 'C',  [&]() {
             return new PacMan("Pacman/Moving/PacMan_Eating_1" , _shapeSize, 2);
@@ -80,10 +98,15 @@ void Level::SpawnEntity(const Vector2f& _shapeSize, const char _symbol, const u_
     };
 
     Entity* _entity = _textureDatabase[_symbol]();
-    PlaceEntity(_j, _i, _entity);
+    if (_entity)
+    {
+        PlaceEntity(_j, _i, _entity);
+    }
     entities.push_back(_entity);
 
     sort(entities.begin(), entities.end(), [](Entity* _entity1, Entity* _entity2) {
+        if (!_entity1) return false;
+        if (!_entity2) return true;
         return _entity1->GetOffset() < _entity2->GetOffset();
         });
 }

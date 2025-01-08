@@ -1,6 +1,5 @@
 #include "Game.h"
 #include "InputManager.h"
-#include "ColiderManager.h"
 Game::Game()
 {
 	availableLevel =
@@ -10,7 +9,6 @@ Game::Game()
 		new Level("BigMap")
 	};
 	selectedLevel = availableLevel[0];
-	ColiderManager::GetInstance().SetSelectedLevel(selectedLevel);
 }
 
 Game::~Game()

@@ -18,6 +18,5 @@ public:
 	~Ghost();
 
 private:
-	void SetupInput();
 
 };

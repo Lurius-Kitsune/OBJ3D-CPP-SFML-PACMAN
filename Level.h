@@ -32,6 +32,8 @@ public:
 public:
 	void Display(RenderWindow& _window) const;
 
+	Entity* CheckColider(ColiderComponent* _dealerColider);
+
 private:
 	void Generate();
 	void SpawnEntity(const Vector2f& _shapeSize, const char _symbol, const u_int& _j, const u_int& _i);

@@ -35,7 +35,7 @@ public:
 	}
 
 public:
-	Entity(const string& _name, const Vector2f& _shapeSize, const u_int& _zOffset);
+	Entity(const string& _name, const Vector2f& _shapeSize, const u_int& _zOffset, const bool _isSolid);
 
 	virtual ~Entity();
 };

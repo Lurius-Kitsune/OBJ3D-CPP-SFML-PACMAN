@@ -4,10 +4,10 @@
 
 class ColiderComponent : public Component
 {
-	string name;
-	Vector2f collider;
+	bool isSolid;
+
 public:
-	ColiderComponent(Entity* _owner, const string& _name);
+	ColiderComponent(Entity* _owner, const bool _isSolid);
 public:
 
 };

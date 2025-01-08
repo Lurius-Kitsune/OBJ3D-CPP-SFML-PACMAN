@@ -1,6 +1,6 @@
 #include "PacMan.h"
 #include "InputManager.h"
-PacMan::PacMan(const string& _name, const Vector2f& _shapeSize, const u_int& _zOffset) : Entity(_name, _shapeSize, _zOffset)
+PacMan::PacMan(const string& _name, const Vector2f& _shapeSize, const u_int& _zOffset) : Entity(_name, _shapeSize, _zOffset, false)
 {
 	movement = new MovementComponent(this);
 	life = new LifeCoponent(this);
