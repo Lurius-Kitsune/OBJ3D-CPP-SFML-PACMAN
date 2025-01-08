@@ -13,17 +13,29 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="Script">
+    <Filter Include="Manager">
+      <UniqueIdentifier>{4fe13011-43d5-4df9-b9de-6b894beab27f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game">
       <UniqueIdentifier>{e58dd968-bc6a-4550-9d14-85f7c9771e8d}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Script\Level">
+    <Filter Include="Game\Level">
       <UniqueIdentifier>{8eea667e-ea78-4d62-b6b7-0f96d632ab4e}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Script\Level\Entity">
+    <Filter Include="Game\Entity">
       <UniqueIdentifier>{050927bb-55fe-4078-8d9d-4062f71ec924}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Script\Component">
+    <Filter Include="Game\Entity\Component">
       <UniqueIdentifier>{08f7ce83-7f9d-48b6-a990-1aca3a3b0421}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Entity\Component\Life">
+      <UniqueIdentifier>{b633cbe4-1bee-4d7a-b617-0716faada135}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Entity\Component\Movement">
+      <UniqueIdentifier>{cb0397f3-25d8-431d-8580-05e2ea5fc4b3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Entity\Component\Collider">
+      <UniqueIdentifier>{b062126d-65eb-4f7c-94c4-67d79ad6646a}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -34,28 +46,31 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Level.cpp">
-      <Filter>Script\Level</Filter>
+      <Filter>Game\Level</Filter>
     </ClCompile>
     <ClCompile Include="Entity.cpp">
-      <Filter>Script\Level\Entity</Filter>
-    </ClCompile>
-    <ClCompile Include="TextureManager.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Component.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Game\Entity</Filter>
     </ClCompile>
     <ClCompile Include="MovementComponent.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Game\Entity\Component\Movement</Filter>
     </ClCompile>
     <ClCompile Include="LifeComponent.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Game\Entity\Component\Life</Filter>
+    </ClCompile>
+    <ClCompile Include="ColiderComponent.cpp">
+      <Filter>Game\Entity\Component\Collider</Filter>
+    </ClCompile>
+    <ClCompile Include="Component.cpp">
+      <Filter>Game\Entity\Component</Filter>
     </ClCompile>
     <ClCompile Include="PacMan.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Game\Entity</Filter>
     </ClCompile>
     <ClCompile Include="InputManager.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="TextureManager.cpp">
+      <Filter>Manager</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -75,28 +90,31 @@
       <Filter>Resource Files</Filter>
     </ClInclude>
     <ClInclude Include="Level.h">
-      <Filter>Script\Level</Filter>
+      <Filter>Game\Level</Filter>
     </ClInclude>
     <ClInclude Include="Entity.h">
-      <Filter>Script\Level\Entity</Filter>
-    </ClInclude>
-    <ClInclude Include="TextureManager.h">
-      <Filter>Script</Filter>
-    </ClInclude>
-    <ClInclude Include="PacMan.h">
-      <Filter>Script</Filter>
-    </ClInclude>
-    <ClInclude Include="MovementComponent.h">
-      <Filter>Script\Component</Filter>
+      <Filter>Game\Entity</Filter>
     </ClInclude>
     <ClInclude Include="Component.h">
-      <Filter>Script\Component</Filter>
+      <Filter>Game\Entity\Component</Filter>
     </ClInclude>
     <ClInclude Include="LifeComponent.h">
-      <Filter>Script\Component</Filter>
+      <Filter>Game\Entity\Component\Life</Filter>
+    </ClInclude>
+    <ClInclude Include="MovementComponent.h">
+      <Filter>Game\Entity\Component\Movement</Filter>
+    </ClInclude>
+    <ClInclude Include="PacMan.h">
+      <Filter>Game\Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="ColiderComponent.h">
+      <Filter>Game\Entity\Component\Collider</Filter>
     </ClInclude>
     <ClInclude Include="InputManager.h">
-      <Filter>Resource Files</Filter>
+      <Filter>Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="TextureManager.h">
+      <Filter>Manager</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
