@@ -6,6 +6,7 @@ PacMan::PacMan(Level* _level, const Vector2f& _shapeSize) : Entity(_level, "Pacm
 	life = new LifeCoponent(this);
 	animation = new AnimationComponent(this, Vector2i(texture.getSize()), Vector2i(3, 1), 1);
 	animation->SetCurrentFrame({ 1,0 });
+
 	SetupInput();
 }
 

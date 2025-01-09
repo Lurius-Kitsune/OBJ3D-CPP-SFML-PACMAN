@@ -57,9 +57,6 @@
     <ClCompile Include="LifeComponent.cpp">
       <Filter>Game\Entity\Component\Life</Filter>
     </ClCompile>
-    <ClCompile Include="ColiderComponent.cpp">
-      <Filter>Game\Entity\Component\Collider</Filter>
-    </ClCompile>
     <ClCompile Include="Component.cpp">
       <Filter>Game\Entity\Component</Filter>
     </ClCompile>
@@ -71,6 +68,27 @@
     </ClCompile>
     <ClCompile Include="TextureManager.cpp">
       <Filter>Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="AnimationComponent.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CollisionComponent.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Food.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Game.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Ghost.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GhostMovementCompenent.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Object.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -107,14 +125,32 @@
     <ClInclude Include="PacMan.h">
       <Filter>Game\Entity</Filter>
     </ClInclude>
-    <ClInclude Include="ColiderComponent.h">
-      <Filter>Game\Entity\Component\Collider</Filter>
-    </ClInclude>
     <ClInclude Include="InputManager.h">
       <Filter>Manager</Filter>
     </ClInclude>
     <ClInclude Include="TextureManager.h">
       <Filter>Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="AnimationComponent.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CollisionComponent.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Food.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Game.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Ghost.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GhostMovementCompenent.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Object.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

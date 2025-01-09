@@ -19,5 +19,5 @@ public:
 	Food(Level* _level, const string& _name, const Vector2f& _shapeSize, const FoodType& _type ,const int _points);
 
 protected:
-	virtual void Eat(Entity* _entity);
+	virtual bool Eat(Entity* _entity);
 };

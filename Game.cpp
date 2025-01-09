@@ -37,6 +37,7 @@ void Game::Update()
         window->clear();
         level->Update();
         window->display();
+
         SLEEP(250ms);
     }
 }

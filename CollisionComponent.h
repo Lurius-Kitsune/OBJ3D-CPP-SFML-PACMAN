@@ -14,7 +14,7 @@ enum CollisionType
 class CollisionComponent : public Component
 {
 	CollisionType type;
-	function<void(Entity* _entity)> callback;
+	function<bool(Entity* _entity)> callback;
 
 public:
 	INLINE void SetType(const CollisionType& _status)
@@ -22,7 +22,7 @@ public:
 		type = _status;
 	}
 public:
-	CollisionComponent(const CollisionType& _type, const function<void(Entity* _entity)>& _callback , Entity * _owner);
+	CollisionComponent(const CollisionType& _type, const function<bool(Entity* _entity)>& _callback , Entity * _owner);
 public:
 	bool Collide(Entity* _entity);
 };
