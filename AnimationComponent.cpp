@@ -5,14 +5,7 @@
 AnimationComponent::AnimationComponent(Entity* _owner, const Vector2i& _spriteSize, const Vector2i& _grid, const float _speed, const bool _isLoop)
 	: Component(_owner)
 {
-	Reset();
-
-	canRun = true;
-	isLoop = _isLoop;
-	speed = _speed;
-	spriteSize = _spriteSize;
-	grid = _grid;
-	currentFrame = { 0, 0 };
+	SetTexture(_spriteSize, _grid, _speed, _isLoop, "PacMan_Moving");
 	shape = owner->GetShapePtr();
 }
 
@@ -26,6 +19,18 @@ void AnimationComponent::SetCurrentFrame(const Vector2i& _frame)
 {
 	currentFrame = _frame;
 	TextureManager::GetInstance().SetTextureRectOnShape(*shape, ComputeFrameRect());
+}
+
+void AnimationComponent::SetTexture(const Vector2i& _spriteSize, const Vector2i& _grid, const float _speed, const bool _isLoop, const string& _texturePath)
+{
+	Reset();
+
+	canRun = true;
+	isLoop = _isLoop;
+	speed = _speed;
+	spriteSize = _spriteSize;
+	grid = _grid;
+	currentFrame = { 0, 0 };
 }
 
 void AnimationComponent::Reset()

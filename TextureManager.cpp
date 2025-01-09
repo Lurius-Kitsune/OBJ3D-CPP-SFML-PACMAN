@@ -23,3 +23,17 @@ void TextureManager::SetTextureRectOnShape(RectangleShape& _shape, const Vector2
 {
 	SetTextureRectOnShape(_shape, IntRect(_position, _size));
 }
+
+void TextureManager::ChangeShape(RectangleShape& _shape, Texture& _texture, const string& _name)
+{
+	if (!_texture.loadFromFile("Assets/Textures/" + _name + ".png"))
+	{
+		Logger::GetInstance().Error("Impossible de lire le fichier !");
+		if (!_texture.loadFromFile("Assets/Textures/MissingTexture.png"))
+		{
+			throw exception("Can't put missing texture, abort !");
+		}
+	}
+
+	_shape.setTexture(&_texture);
+}

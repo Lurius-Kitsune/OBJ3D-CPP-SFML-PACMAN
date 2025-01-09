@@ -4,7 +4,7 @@
 
 MovementComponent::MovementComponent(Entity* _owner) : Component(_owner) 
 {
-	canMove = 0;
+	canMove = false;
 	speed = 1;
 	direction = Vector2i(1, 0);
 }
@@ -21,14 +21,13 @@ void MovementComponent::Move()
 		const float _x = direction.x * speed * owner->GetShapeSize().x;
 		const float _y = direction.y * speed * owner->GetShapeSize().y;
 
-		
+		RectangleShape& _shape = owner->GetShape();
 		const Vector2f& _destination = owner->GetShape().getPosition() + Vector2f(_x, _y);
 		Entity* _entity = owner->GetLevel()->CheckCollision(_destination);
-		const bool _isGhost = Cast<Ghost>(_entity);
 
-		if (!_entity || (_entity->GetCollision()->Collide(owner) && !_isGhost))
+		if (!_entity || _entity->GetCollision()->Collide(owner))
 		{
-			owner->GetShape().setPosition(_destination);
+			_shape .setPosition(_destination);
 		}
 	}
 }

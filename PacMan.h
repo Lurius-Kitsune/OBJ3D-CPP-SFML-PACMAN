@@ -4,12 +4,16 @@
 #include "MovementComponent.h"
 #include "LifeComponent.h"
 #include "AnimationComponent.h"
+#include "TextureManager.h"
 
 class PacMan : public Entity
 {
 	MovementComponent* movement;
 	LifeCoponent* life;
 	AnimationComponent* animation;
+	int deathSpriteNumber;
+	bool isDead;
+
 public:
 	INLINE MovementComponent* GetMovementComponent()const
 	{
@@ -33,6 +37,8 @@ public:
 public:
 	virtual void Update() override;
 	void Death();
+
+	void DisplayDeath();
 private:
 	void SetupInput();
 
