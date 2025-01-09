@@ -26,7 +26,7 @@ public:
 	AnimationComponent(Entity* _entity, const string& _texturePath, const u_int& _maxAnimationStep, const Vector2i _textureSize, const Vector2i& _animationBegin, const SpriteDirection& _direction);
 
 public:
-	void NextStep();
+	void Update();
 	void SetTexture(const string& _path, const u_int& _maxAnimationStep, const Vector2i _textureSize, const Vector2i& _animationBegin,
 		const SpriteDirection& _direction, const u_int& _step=0);
 

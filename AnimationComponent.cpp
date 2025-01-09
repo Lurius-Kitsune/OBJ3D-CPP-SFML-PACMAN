@@ -8,7 +8,7 @@ AnimationComponent::AnimationComponent(Entity* _entity, const string& _texturePa
 	SetTexture(_texturePath, _maxAnimationStep, _textureSize, _animationBegin, _direction);
 }
 
-void AnimationComponent::NextStep()
+void AnimationComponent::Update()
 {
 	animationStep++;
 	animationStep %= maxAnimationStep;

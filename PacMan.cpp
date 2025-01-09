@@ -19,7 +19,7 @@ void PacMan::Update()
 {
 	movement->Update();
 	life->Update();
-	animation->NextStep();
+	animation->Update();
 }
 
 void PacMan::AddPoint(const int _points)
