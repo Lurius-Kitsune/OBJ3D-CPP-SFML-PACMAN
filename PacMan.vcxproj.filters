@@ -34,11 +34,11 @@
     <Filter Include="Game\Entity\Component\Movement">
       <UniqueIdentifier>{cb0397f3-25d8-431d-8580-05e2ea5fc4b3}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Game\Entity\Component\Collider">
-      <UniqueIdentifier>{b062126d-65eb-4f7c-94c4-67d79ad6646a}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Game\Entity\Component\Animation">
       <UniqueIdentifier>{ca073027-8c1c-4a8b-bde1-a90011e0e93a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Entity\Component\Collision">
+      <UniqueIdentifier>{b062126d-65eb-4f7c-94c4-67d79ad6646a}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -72,12 +72,6 @@
     <ClCompile Include="TextureManager.cpp">
       <Filter>Manager</Filter>
     </ClCompile>
-    <ClCompile Include="CollisionComponent.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Food.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Object.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -86,6 +80,12 @@
     </ClCompile>
     <ClCompile Include="AnimationComponent.cpp">
       <Filter>Game\Entity\Component\Animation</Filter>
+    </ClCompile>
+    <ClCompile Include="CollisionComponent.cpp">
+      <Filter>Game\Entity\Component\Collision</Filter>
+    </ClCompile>
+    <ClCompile Include="Food.cpp">
+      <Filter>Game\Entity</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -128,12 +128,6 @@
     <ClInclude Include="TextureManager.h">
       <Filter>Manager</Filter>
     </ClInclude>
-    <ClInclude Include="CollisionComponent.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Food.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Object.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -142,6 +136,12 @@
     </ClInclude>
     <ClInclude Include="AnimationComponent.h">
       <Filter>Game\Entity\Component\Animation</Filter>
+    </ClInclude>
+    <ClInclude Include="CollisionComponent.h">
+      <Filter>Game\Entity\Component\Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="Food.h">
+      <Filter>Game\Entity</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
