@@ -32,6 +32,7 @@ public:
 
 public:
 	virtual void Update() override;
+	void Death();
 private:
 	void SetupInput();
 

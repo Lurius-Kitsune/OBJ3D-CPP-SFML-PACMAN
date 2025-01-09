@@ -22,6 +22,12 @@ void PacMan::Update()
 	animation->Update();
 }
 
+void PacMan::Death()
+{
+	life->RemoveLife();
+	level->Respawn(this);
+}
+
 void PacMan::SetupInput()
 {
 	InputManager& _inputManager = InputManager::GetInstance();

@@ -77,6 +77,7 @@ public:
 	Entity* CheckCollision(const Vector2f& _targetPosition);
 	void RemoveEatable(Food* _eatable);
 	void ActiveVulnerableEvent();
+	void Respawn(Entity* _entity);
 
 private:
 	void Generate();

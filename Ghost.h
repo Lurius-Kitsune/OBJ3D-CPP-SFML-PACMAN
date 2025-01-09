@@ -21,5 +21,5 @@ public:
 public:
 	virtual void Update() override;
 private:
-
+	virtual void Eat(Entity* _entity) override;
 };

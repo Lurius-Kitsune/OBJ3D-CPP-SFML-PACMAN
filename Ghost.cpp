@@ -1,4 +1,6 @@
 #include "Ghost.h"
+#include "LifeComponent.h"
+#include "PacMan.h"
 
 Ghost::Ghost(Level* _level, const Vector2f& _shapeSize)
 	: Food(_level, "Ghosts/BlueGhost_Moving", _shapeSize, FT_GHOST, 1000)
@@ -15,4 +17,23 @@ Ghost::~Ghost()
 void Ghost::Update()
 {
 	animation->Update();
+}
+
+void Ghost::Eat(Entity* _entity)
+{
+	if (PacMan* _pacMan = Cast<PacMan>(_entity))
+	{
+		if (isVulnerable)
+		{
+			Super::Eat(_entity);
+		}
+		else
+		{
+			_pacMan->Death();
+			if (LifeCoponent* _life = _pacMan->GetLifeCoponent())
+			{
+				_life->RemoveLife();
+			}
+		}
+	}
 }

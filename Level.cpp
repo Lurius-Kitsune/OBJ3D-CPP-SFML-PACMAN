@@ -59,6 +59,11 @@ void Level::ActiveVulnerableEvent()
     }
 }
 
+void Level::Respawn(Entity* _entity)
+{
+    _entity->SetPosition();
+}
+
 void Level::Display(RenderWindow* _window) const
 {
     for (Entity* _entity : entities)
