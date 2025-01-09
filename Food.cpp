@@ -13,8 +13,9 @@ void Food::Eat(Entity* _entity)
 {
 	if (PacMan* _pacMan = Cast<PacMan>(_entity))
 	{
-		Game::GetInstance().AddScore(points);
 		shape.setScale(Vector2f());
 		type = FT_COUNT;
+		Game::GetInstance().AddScore(points);
+		level->RemoveEatable(this);
 	}
 }

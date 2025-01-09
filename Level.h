@@ -2,6 +2,7 @@
 #include "CoreMinimal.h"
 
 class PacMan;
+class Food;
 class Entity;
 
 class Level 
@@ -9,6 +10,7 @@ class Level
 	string name;
 	string prefixPath;
 	vector<Entity*> entities;
+	set<Food*> eatables;
 	Vector2u mapSize;
 	RenderWindow* window;
 	int points;
@@ -19,6 +21,11 @@ public:
 		return mapSize;
 	}
 
+	INLINE bool IsOver()
+	{
+		return eatables.size() <= 0;
+	}
+
 public:
 	Level(const string& _name, RenderWindow* _window);
 	~Level();
@@ -26,6 +33,7 @@ public:
 public:
 	void Update();
 	Entity* CheckCollision(const Vector2f& _targetPosition);
+	void RemoveEatable(Food* _eatable);
 
 private:
 	void Generate();

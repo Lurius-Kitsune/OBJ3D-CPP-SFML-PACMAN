@@ -5,6 +5,7 @@
 #include <vector>
 #include <functional>
 #include <map>
+#include <set>
 #include <fstream>
 #include <SFML/Graphics.hpp>
 #include "Macro.h"

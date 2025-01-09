@@ -2,6 +2,7 @@
 #include "FileLoader.h"
 #include "PacMan.h"
 #include "Food.h"
+#include "Game.h"
 
 Level::Level(const string& _name, RenderWindow* _window)
 {
@@ -37,6 +38,15 @@ Entity* Level::CheckCollision(const Vector2f& _targetPosition)
     }
 
     return nullptr;
+}
+
+void Level::RemoveEatable(Food* _eatable)
+{
+    eatables.erase(eatables.find(_eatable));
+    if (IsOver())
+    {
+        Game::GetInstance().Stop();
+    }
 }
 
 void Level::Display() const
@@ -85,7 +95,9 @@ void Level::SpawnEntity(const Vector2f& _shapeSize, const char _symbol, const u_
             return new Entity(this, "Walls/Wall", _shapeSize, CT_BLOCK);
         }},
         { '.', [&]() {
-            return new Food(this,"Foods/Point" , _shapeSize, FT_EATABLE, 10);
+            Food* _eatable = new Food(this,"Foods/Point" , _shapeSize, FT_EATABLE, 10);
+            eatables.insert(_eatable);
+            return _eatable;
         }},
         { '*', [&]() {
             return new Food(this,"Foods/Apple" , _shapeSize,  FT_EATABLE, 100);

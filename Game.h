@@ -21,9 +21,9 @@ public:
 
 public:
 	void Launch();
+	void Stop();
 
 private:
 	void Start();
 	void Update();
-	void Stop();
 };
