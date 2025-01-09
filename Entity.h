@@ -30,6 +30,10 @@ public:
 	{
 		return shape;
 	}
+	INLINE RectangleShape* GetShapePtr()
+	{
+		return shape;
+	}
 
 	INLINE Vector2f GetShapeSize() const
 	{

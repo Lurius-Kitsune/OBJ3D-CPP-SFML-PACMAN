@@ -13,3 +13,13 @@ void TextureManager::InitShape(RectangleShape& _shape, Texture& _texture, const 
 
 	_shape.setTexture(&_texture);
 }
+
+void TextureManager::SetTextureRectOnShape(RectangleShape& _shape, const IntRect& _rect)
+{
+	_shape.setTextureRect(_rect);
+}
+
+void TextureManager::SetTextureRectOnShape(RectangleShape& _shape, const Vector2i& _position, const Vector2i& _size)
+{
+	SetTextureRectOnShape(_shape, IntRect(_position, _size));
+}
