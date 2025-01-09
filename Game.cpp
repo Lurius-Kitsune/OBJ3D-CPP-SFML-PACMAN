@@ -23,6 +23,7 @@ Game::~Game()
 void Game::Launch()
 {
 	windowGame = RenderWindow(VideoMode(Vector2u(MAP_SIZE_X * TILE_SIZE, MAP_SIZE_Y * TILE_SIZE)), "Pac Man");
+	windowGame.setIcon(Image("Pacman.png"));
 	Loop();
 }
 
