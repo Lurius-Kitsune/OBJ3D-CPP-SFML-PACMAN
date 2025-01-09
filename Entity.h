@@ -8,9 +8,9 @@ class Entity : public Object
 {
 
 	Vector2f shapeSize;
-	CollisionComponent* collision;
 
 protected:
+	CollisionComponent* collision;
 	RectangleShape shape;
 	Texture texture;
 	Level* level;

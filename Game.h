@@ -13,6 +13,7 @@ public:
 	INLINE void AddScore(const int _score)
 	{
 		score += _score;
+		cout << "Score : " << score << endl;
 	}
 public:
 	Game();
