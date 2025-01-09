@@ -8,11 +8,11 @@ class Entity : public Object
 {
 
 	Vector2f shapeSize;
-	Texture texture;
 	CollisionComponent* collision;
 
 protected:
 	RectangleShape shape;
+	Texture texture;
 	Level* level;
 
 public:

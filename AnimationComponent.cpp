@@ -34,5 +34,7 @@ void AnimationComponent::ChangeNextFrame()
 		canRun = false;
 		return;
 	}
-	TextureManager::GetInstance().SetTextureRectOnShape(*shape, currentFrame, spriteSize);
+	const Vector2i& _tileSize = Vector2i(spriteSize.x / grid.x, spriteSize.y / grid.y);
+	const Vector2i& _position = Vector2i((currentFrame.x - 1) * spriteSize.x, (currentFrame.y - 1) * spriteSize.y);
+	TextureManager::GetInstance().SetTextureRectOnShape(*shape, _position , spriteSize);
 }

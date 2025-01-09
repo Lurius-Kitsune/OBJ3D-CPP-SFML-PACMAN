@@ -4,6 +4,7 @@ PacMan::PacMan(Level* _level, const Vector2f& _shapeSize) : Entity(_level, "Pacm
 {
 	movement = new MovementComponent(this);
 	life = new LifeCoponent(this);
+	animation = new AnimationComponent(this, Vector2i(texture.getSize()), Vector2i(3, 1), 1);
 
 	SetupInput();
 }
@@ -18,6 +19,7 @@ void PacMan::Update()
 {
 	movement->Update();
 	life->Update();
+	animation->Update();
 }
 
 void PacMan::AddPoint(const int _points)
