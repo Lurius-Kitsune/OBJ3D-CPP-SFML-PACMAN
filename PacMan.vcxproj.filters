@@ -40,6 +40,12 @@
     <Filter Include="Game\Entity\Component\Collision">
       <UniqueIdentifier>{b062126d-65eb-4f7c-94c4-67d79ad6646a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Game\Entity\Food">
+      <UniqueIdentifier>{a8877261-40c5-40d5-a704-d867fa05850e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Entity\PacMan">
+      <UniqueIdentifier>{da135845-a130-4cf6-9576-768304a15194}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -63,9 +69,6 @@
     <ClCompile Include="Component.cpp">
       <Filter>Game\Entity\Component</Filter>
     </ClCompile>
-    <ClCompile Include="PacMan.cpp">
-      <Filter>Game\Entity</Filter>
-    </ClCompile>
     <ClCompile Include="InputManager.cpp">
       <Filter>Manager</Filter>
     </ClCompile>
@@ -85,6 +88,12 @@
       <Filter>Game\Entity\Component\Collision</Filter>
     </ClCompile>
     <ClCompile Include="Food.cpp">
+      <Filter>Game\Entity\Food</Filter>
+    </ClCompile>
+    <ClCompile Include="PacMan.cpp">
+      <Filter>Game\Entity\PacMan</Filter>
+    </ClCompile>
+    <ClCompile Include="Ghost.cpp">
       <Filter>Game\Entity</Filter>
     </ClCompile>
   </ItemGroup>
@@ -119,9 +128,6 @@
     <ClInclude Include="MovementComponent.h">
       <Filter>Game\Entity\Component\Movement</Filter>
     </ClInclude>
-    <ClInclude Include="PacMan.h">
-      <Filter>Game\Entity</Filter>
-    </ClInclude>
     <ClInclude Include="InputManager.h">
       <Filter>Manager</Filter>
     </ClInclude>
@@ -141,7 +147,16 @@
       <Filter>Game\Entity\Component\Collision</Filter>
     </ClInclude>
     <ClInclude Include="Food.h">
+      <Filter>Game\Entity\Food</Filter>
+    </ClInclude>
+    <ClInclude Include="PacMan.h">
+      <Filter>Game\Entity\PacMan</Filter>
+    </ClInclude>
+    <ClInclude Include="Ghost.h">
       <Filter>Game\Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="Random.h">
+      <Filter>Resource Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

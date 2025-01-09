@@ -8,6 +8,7 @@
 #include <fstream>
 #include <SFML/Graphics.hpp>
 #include "Macro.h"
+#include "Random.h"
 
 using namespace std;
 using namespace sf;

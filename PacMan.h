@@ -12,11 +12,21 @@ class PacMan : public Entity
 	MovementComponent* movement;
 	LifeCoponent* life;
 	AnimationComponent* animation;
-
+	bool isInvulnerable;
 public:
 	INLINE MovementComponent* GetMovementComponent()const
 	{
 		return movement;
+	}
+
+	INLINE bool IsInvulnerable()const
+	{
+		return isInvulnerable;
+	}
+
+	INLINE void ToogleInvulnerable()
+	{
+		isInvulnerable = !isInvulnerable;
 	}
 
 public:

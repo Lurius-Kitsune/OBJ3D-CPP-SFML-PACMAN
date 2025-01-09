@@ -2,6 +2,7 @@
 #include "FileLoader.h"
 #include "PacMan.h"
 #include "Food.h"
+#include "Ghost.h"
 
 Level::Level(const string& _name, RenderWindow* _window)
 {
@@ -84,6 +85,19 @@ void Level::Generate()
 
 void Level::SpawnEntity(const Vector2f& _shapeSize, const char _symbol, const u_int& _j, const u_int& _i)
 {
+    map<u_int, function<Entity* ()>> _ghostTextureDatabase =
+    {
+        {0, [&]() {
+            return new Ghost(this, {GC_RED}, _shapeSize);
+        }},
+        {1, [&]() {
+            return new Ghost(this, {GC_BLUE}, _shapeSize);
+        }},
+        {2, [&]() {
+            return new Ghost(this, {GC_YELLOW}, _shapeSize);
+        }}
+    };
+
     map<char, function<Entity*()>> _textureDatabase =
     {
         {'#', [&]() {
@@ -99,7 +113,7 @@ void Level::SpawnEntity(const Vector2f& _shapeSize, const char _symbol, const u_
             return new PacMan(this, _shapeSize);
         }},
         { 'G', [&]() {
-            return new Food(this,"Ghosts/Blue/BlueGhost_Vulnerable" , _shapeSize, FT_EATABLE, 1000);
+            return _ghostTextureDatabase[RandomInt(0,2)]();
         }}
     };
 
