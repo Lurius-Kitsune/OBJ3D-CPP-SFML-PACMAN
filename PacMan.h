@@ -16,13 +16,22 @@ public:
 		return movement;
 	}
 
+	INLINE LifeCoponent* GetLifeCoponent()const
+	{
+		return life;
+	}
+
+	INLINE AnimationComponent* GetAnimationComponent()const
+	{
+		return animation;
+	}
+
 public:
 	PacMan(Level* _level, const Vector2f& _shapeSize);
 	~PacMan();
 
 public:
 	virtual void Update() override;
-	void AddPoint(const int _points);
 private:
 	void SetupInput();
 

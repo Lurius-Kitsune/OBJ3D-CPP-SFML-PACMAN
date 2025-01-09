@@ -32,7 +32,7 @@ public:
 	}
 	INLINE RectangleShape* GetShapePtr()
 	{
-		return shape;
+		return &shape;
 	}
 
 	INLINE Vector2f GetShapeSize() const

@@ -21,6 +21,11 @@ class AnimationComponent : public Component
 	RectangleShape* shape;
 
 public:
+	INLINE void ToogleRunStatus()
+	{
+		canRun = !canRun;
+	}
+
 	INLINE void SetCurrentRow(const int _rowIndex)
 	{
 		grid.y = _rowIndex;
@@ -31,8 +36,9 @@ public:
 
 public:
 	virtual void Update() override;
-
+	void SetCurrentFrame(const Vector2i& _frame);
 private:
 	void Reset();
+	IntRect ComputeFrameRect();
 	void ChangeNextFrame();
 };

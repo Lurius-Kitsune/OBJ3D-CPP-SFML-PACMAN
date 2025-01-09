@@ -26,7 +26,6 @@ public:
 public:
 	void Update();
 	Entity* CheckCollision(const Vector2f& _targetPosition);
-	void AddScore(const int _points);
 
 private:
 	void Generate();

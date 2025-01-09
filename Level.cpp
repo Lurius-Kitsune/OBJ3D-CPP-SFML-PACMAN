@@ -39,11 +39,6 @@ Entity* Level::CheckCollision(const Vector2f& _targetPosition)
     return nullptr;
 }
 
-void Level::AddScore(const int _points)
-{
-    points += _points;
-}
-
 void Level::Display() const
 {
     for (Entity* _entity : entities)

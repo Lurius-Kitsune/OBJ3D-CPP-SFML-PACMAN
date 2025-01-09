@@ -114,11 +114,11 @@
       <AdditionalDependencies>sfml-graphics-d.lib;sfml-window-d.lib;sfml-audio-d.lib;sfml-network-d.lib;sfml-system-d.lib;Prog1Lib.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PreBuildEvent>
-      <Command>xcopy /y /d  "..\SFML3.0\bin\sfml-graphics-d-3.dll" "$(OutDir)"
-xcopy /y /d  "..\SFML3.0\bin\sfml-system-d-3.dll" "$(OutDir)"
-xcopy /y /d  "..\SFML3.0\bin\sfml-network-d-3.dll" "$(OutDir)"
-xcopy /y /d  "..\SFML3.0\bin\sfml-audio-d-3.dll" "$(OutDir)"
-xcopy /y /d  "..\SFML3.0\bin\sfml-window-d-3.dll" "$(OutDir)"
+      <Command>xcopy /y /d  "..\SFML-3.0.0\bin\sfml-graphics-d-3.dll" "$(OutDir)"
+xcopy /y /d  "..\SFML-3.0.0\bin\sfml-system-d-3.dll" "$(OutDir)"
+xcopy /y /d  "..\SFML-3.0.0\bin\sfml-network-d-3.dll" "$(OutDir)"
+xcopy /y /d  "..\SFML-3.0.0\bin\sfml-audio-d-3.dll" "$(OutDir)"
+xcopy /y /d  "..\SFML-3.0.0\bin\sfml-window-d-3.dll" "$(OutDir)"
 xcopy /y /d  ".\lib\prog1Dll\dll\Prog1Lib.dll" "$(OutDir)"
 </Command>
     </PreBuildEvent>
@@ -159,6 +159,7 @@ xcopy /y /d  ".\lib\prog1Dll\dll\Prog1Lib.dll" "$(OutDir)"
     <ClCompile Include="Entity.cpp" />
     <ClCompile Include="FileLoader.cpp" />
     <ClCompile Include="Food.cpp" />
+    <ClCompile Include="Game.cpp" />
     <ClCompile Include="InputManager.cpp" />
     <ClCompile Include="Level.cpp" />
     <ClCompile Include="LifeComponent.cpp" />
@@ -176,6 +177,7 @@ xcopy /y /d  ".\lib\prog1Dll\dll\Prog1Lib.dll" "$(OutDir)"
     <ClInclude Include="Entity.h" />
     <ClInclude Include="FileLoader.h" />
     <ClInclude Include="Food.h" />
+    <ClInclude Include="Game.h" />
     <ClInclude Include="InputManager.h" />
     <ClInclude Include="Level.h" />
     <ClInclude Include="LifeComponent.h" />
