@@ -55,6 +55,7 @@ class Level
 	set<Food*> eatables;
 	set<Ghost*> ghosts;
 	Vector2u mapSize;
+	Vector2f playerStart;
 	Timer* vulnerableTimer;
 
 public:
@@ -82,7 +83,7 @@ public:
 private:
 	void Generate();
 	void SpawnEntity(const Vector2f& _shapeSize, const char _symbol, const u_int& _j, const u_int& _i);
-	void PlaceEntity(const u_int& _j, const Vector2f& _shapeSize, const u_int& _i, Entity* _entity);
+	Vector2f ComputePosition(const u_int& _j, const Vector2f& _shapeSize, const u_int& _i);
 	void Display(RenderWindow* _window) const;
 	void DeactiveVulenerableEvent();
 };

@@ -7,6 +7,7 @@ Ghost::Ghost(Level* _level, const Vector2f& _shapeSize)
 {
 	animation = new AnimationComponent(this, Vector2i(texture.getSize()), Vector2i(4,1), 1);
 	animation->SetCurrentFrame(Vector2i(1,0));
+	isVulnerable = false;
 }
 
 Ghost::~Ghost()

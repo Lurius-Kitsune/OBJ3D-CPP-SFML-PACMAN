@@ -1,5 +1,6 @@
 #include "MovementComponent.h"
 #include "Entity.h"
+#include "Ghost.h"
 
 MovementComponent::MovementComponent(Entity* _owner) : Component(_owner) 
 {
@@ -23,7 +24,9 @@ void MovementComponent::Move()
 		
 		const Vector2f& _destination = owner->GetShape().getPosition() + Vector2f(_x, _y);
 		Entity* _entity = owner->GetLevel()->CheckCollision(_destination);
-		if (!_entity || _entity->GetCollision()->Collide(owner))
+		const bool _isGhost = Cast<Ghost>(_entity);
+
+		if (!_entity || (_entity->GetCollision()->Collide(owner) && !_isGhost))
 		{
 			owner->GetShape().setPosition(_destination);
 		}
