@@ -31,6 +31,7 @@ void Ghost::Eat(Entity* _entity)
 		}
 		else
 		{
+			_pacMan->Die();
 		}
 	}
 }

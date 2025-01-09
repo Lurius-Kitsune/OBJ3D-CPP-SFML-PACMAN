@@ -36,6 +36,7 @@ public:
 public:
 	virtual void Update() override;
 	void AddPoint(const int _points);
+	void Die();
 private:
 	void SetupInput();
 

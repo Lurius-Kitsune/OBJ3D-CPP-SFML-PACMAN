@@ -18,7 +18,6 @@ PacMan::~PacMan()
 void PacMan::Update()
 {
 	movement->Update();
-	life->Update();
 	animation->Update();
 }
 
@@ -27,10 +26,17 @@ void PacMan::AddPoint(const int _points)
 	level->AddScore(_points);
 }
 
+void PacMan::Die()
+{
+	animation->PlaySingleAnimation("Pacman/PacMan_Dying", 11, { 16, 16 }, { 0,0 }, SD_HORIZONTAL);
+	movement->ToogleMoveStatus();
+}
+
 void PacMan::SetupInput()
 {
 	InputManager& _inputManager = InputManager::GetInstance();
 	_inputManager.BindAction([&](){ movement->ToogleMoveStatus(); }, Code::Space);
+	_inputManager.BindAction([&](){ Die(); }, Code::K);
 	_inputManager.BindAction([&]() { movement->SetDirection(Vector2i(0, -1)); }, { Code::Z, Code::Up });
 	_inputManager.BindAction([&](){ movement->SetDirection(Vector2i(0, 1)); }, { Code::S, Code::Down });
 	_inputManager.BindAction([&](){ movement->SetDirection(Vector2i(-1, 0)); }, { Code::Q, Code::Left });
