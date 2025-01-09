@@ -1,15 +1,15 @@
 #include "Level.h"
 #include "FileLoader.h"
 #include "PacMan.h"
+#include "Ghost.h"
 #include "Food.h"
 #include "Game.h"
 
-Level::Level(const string& _name, RenderWindow* _window)
+Level::Level(const string& _name)
 {
 	name = _name;
     prefixPath = "Assets/Maps/";
-    window = _window;
-    points = 0;
+    vulnerableTimer = new Timer(10, [&]() { DeactiveVulenerableEvent(); });
     Generate();
 }
 
@@ -19,15 +19,17 @@ Level::~Level()
     {
         delete _entity;
     }
+    delete vulnerableTimer;
 }
 
 void Level::Update()
 {
+    vulnerableTimer->Update(0.05F);
     for (Entity* _entity : entities)
     {
         _entity->Update();
     }
-    Display();
+    Display(Game::GetInstance().GetWindow());
 }
 
 Entity* Level::CheckCollision(const Vector2f& _targetPosition)
@@ -49,11 +51,27 @@ void Level::RemoveEatable(Food* _eatable)
     }
 }
 
-void Level::Display() const
+void Level::ActiveVulnerableEvent()
+{
+    for (Ghost* _ghost : ghosts)
+    {
+        _ghost->SetVulnerableStatus(true);
+    }
+}
+
+void Level::Display(RenderWindow* _window) const
 {
     for (Entity* _entity : entities)
     {
-        window->draw(_entity->GetShape());
+        _window->draw(_entity->GetShape());
+    }
+}
+
+void Level::DeactiveVulenerableEvent()
+{
+    for (Ghost* _ghost : ghosts)
+    {
+        _ghost->SetVulnerableStatus(false);
     }
 }
 
@@ -106,7 +124,9 @@ void Level::SpawnEntity(const Vector2f& _shapeSize, const char _symbol, const u_
             return new PacMan(this, _shapeSize);
         }},
         { 'G', [&]() {
-            return new Food(this,"Ghosts/Blue/BlueGhost_Vulnerable" , _shapeSize, FT_GHOST, 1000);
+            Ghost* _ghost = new Ghost(this, _shapeSize);
+            ghosts.insert(_ghost);
+            return _ghost;
         }}
     };
 

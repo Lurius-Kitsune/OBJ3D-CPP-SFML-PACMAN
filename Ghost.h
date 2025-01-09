@@ -6,9 +6,16 @@
 class Ghost : public Food
 {
 	AnimationComponent* animation;
+	bool isVulnerable;
 
 public:
-	Ghost(Level* _level, const string& _name, const Vector2f& _shapeSize);
+	INLINE void SetVulnerableStatus(const bool _status)
+	{
+		isVulnerable = _status;
+	}
+
+public:
+	Ghost(Level* _level, const Vector2f& _shapeSize);
 	~Ghost();
 
 public:

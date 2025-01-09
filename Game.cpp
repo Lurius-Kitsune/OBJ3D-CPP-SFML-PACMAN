@@ -24,7 +24,7 @@ void Game::Launch()
 void Game::Start()
 {
     window = new RenderWindow(VideoMode(Vector2u(MAP_SIZE_X * TILE_SIZE, MAP_SIZE_Y * TILE_SIZE)), "Pac Man");
-    level = new Level("SmallMap", window);
+    level = new Level("SmallMap");
 }
 
 void Game::Update()

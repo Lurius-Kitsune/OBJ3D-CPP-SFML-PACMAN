@@ -15,6 +15,11 @@ public:
 		score += _score;
 		cout << "Score : " << score << endl;
 	}
+
+	INLINE RenderWindow* GetWindow() const
+	{
+		return window;
+	}
 public:
 	Game();
 	~Game();

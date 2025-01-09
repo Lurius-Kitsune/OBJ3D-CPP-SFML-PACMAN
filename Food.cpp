@@ -13,13 +13,18 @@ void Food::Eat(Entity* _entity)
 {
 	if (PacMan* _pacMan = Cast<PacMan>(_entity))
 	{
+		Game& _game = Game::GetInstance();
 		if(type == FT_EATABLE)
 		{
 			level->RemoveEatable(this);
 		}
+		else if (type == FT_APPLE)
+		{
+			level->ActiveVulnerableEvent();
+		}
 		type = FT_COUNT;
 		shape.setScale(Vector2f());
 		collision->SetType(CT_NONE);
-		Game::GetInstance().AddScore(points);
+		_game.AddScore(points);
 	}
 }
