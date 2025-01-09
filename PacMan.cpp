@@ -8,6 +8,7 @@ PacMan::PacMan(Level* _level, const Vector2f& _shapeSize) : Entity(_level, "Pacm
 	animation = new AnimationComponent(this, Vector2i(texture.getSize()), Vector2i(3, 1), 1);
 	animation->SetCurrentFrame({ 1,0 });
 	deathSpriteNumber = 12;
+	isDead = false;
 
 	SetupInput();
 }
@@ -23,8 +24,8 @@ void PacMan::Update()
 	if (!isDead)
 	{
 		movement->Update();
-		life->Update();
 		animation->Update();
+		life->Update();
 	}
 	else
 	{

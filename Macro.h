@@ -1,5 +1,6 @@
 #pragma once
 #include "Object.h"
+#include <random>
 
 #define new new(_NORMAL_BLOCK, __FILE__, __LINE__)
 #define SLEEP(_time) sf::sleep(Time(_time))
@@ -16,3 +17,11 @@
 #define InitUTF8 locale::global(locale("fr-FR"))
 #endif
 
+static int RandomInt(const int _min, const int _max)
+{
+    std::random_device _dev;
+    std::mt19937 _rng(_dev());
+    std::uniform_int_distribution<std::mt19937::result_type> _dist(_min, _max);
+
+    return _dist(_rng);
+}

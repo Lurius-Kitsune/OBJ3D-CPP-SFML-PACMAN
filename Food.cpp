@@ -22,6 +22,10 @@ bool Food::Eat(Entity* _entity)
 		{
 			level->ActiveVulnerableEvent();
 		}
+		else if (type == FT_GHOST)
+		{
+			cout << "crounch crounch, je fus mangeeeeeee" << endl;
+		}
 
 		type = FT_COUNT;
 		shape.setScale(Vector2f());

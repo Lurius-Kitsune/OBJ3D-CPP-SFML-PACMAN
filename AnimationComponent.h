@@ -21,6 +21,12 @@ class AnimationComponent : public Component
 	RectangleShape* shape;
 
 public:
+
+	INLINE void SetRunStatus(const bool _status)
+	{
+		canRun = _status;
+	}
+
 	INLINE void ToogleRunStatus()
 	{
 		canRun = !canRun;

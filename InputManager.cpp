@@ -13,7 +13,7 @@ void InputManager::ConsumeInput(RenderWindow& _window)
         {
             for (const InputData& _inputData : inputDatas )
             {
-                if (_inputData.TryToExecute(_key)) break;
+                _inputData.TryToExecute(_key);
             }
         }
     }

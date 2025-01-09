@@ -25,7 +25,6 @@ struct InputData
 		if (!isAnyKey && !ContainsKey(_key->code)) return false;
 
 		callback();
-
 		return true;
 	}
 

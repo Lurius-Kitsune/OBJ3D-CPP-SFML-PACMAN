@@ -12,7 +12,7 @@ AnimationComponent::AnimationComponent(Entity* _owner, const Vector2i& _spriteSi
 void AnimationComponent::Update()
 {
 	Component::Update();
-	ChangeNextFrame();
+	if(canRun) ChangeNextFrame();
 }
 
 void AnimationComponent::SetCurrentFrame(const Vector2i& _frame)
@@ -25,7 +25,7 @@ void AnimationComponent::SetTexture(const Vector2i& _spriteSize, const Vector2i&
 {
 	Reset();
 
-	canRun = true;
+	canRun = false;
 	isLoop = _isLoop;
 	speed = _speed;
 	spriteSize = _spriteSize;
@@ -42,14 +42,14 @@ void AnimationComponent::Reset()
 IntRect AnimationComponent::ComputeFrameRect()
 {
 	const Vector2i& _tileSize = Vector2i(spriteSize.x / grid.x, spriteSize.y / grid.y);
-	const Vector2i& _position = Vector2i((currentFrame.x - 1) * _tileSize.x, (currentFrame.y - 1) * _tileSize.y);
-	return IntRect(_tileSize, _position);
+	const Vector2i& _position = Vector2i(currentFrame.x * _tileSize.x, currentFrame.y * _tileSize.y);
+	return IntRect(_position, _tileSize);
 }
 
 void AnimationComponent::ChangeNextFrame()
 {
 	++currentFrame.x;
-	if (currentFrame.x > grid.x)
+	if (currentFrame.x >= grid.x)
 	{
 		if (isLoop)
 		{
