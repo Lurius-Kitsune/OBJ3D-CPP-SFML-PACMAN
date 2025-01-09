@@ -37,6 +37,7 @@ public:
 public:
 	virtual void Update() override;
 	void SetCurrentFrame(const Vector2i& _frame);
+	void SetTexture(const Vector2i& _spriteSize, const Vector2i& _grid, const float _speed, const bool _isLoop, const string& _texturePath);
 private:
 	void Reset();
 	IntRect ComputeFrameRect();
