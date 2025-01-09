@@ -6,8 +6,7 @@
 
 Game::Game()
 {
-	window = new RenderWindow(VideoMode(Vector2u(MAP_SIZE_X * TILE_SIZE, MAP_SIZE_Y * TILE_SIZE)), "Pac Man");
-	level = new Level("SmallMap", window);
+    score = 0;
 }
 
 Game::~Game()
@@ -18,10 +17,17 @@ Game::~Game()
 
 void Game::Launch()
 {
-    GameLoop();
+    Start();
+    Update();
 }
 
-void Game::GameLoop()
+void Game::Start()
+{
+    window = new RenderWindow(VideoMode(Vector2u(MAP_SIZE_X * TILE_SIZE, MAP_SIZE_Y * TILE_SIZE)), "Pac Man");
+    level = new Level("SmallMap", window);
+}
+
+void Game::Update()
 {
 
     while (window->isOpen())
@@ -33,4 +39,9 @@ void Game::GameLoop()
         window->display();
         SLEEP(250ms);
     }
+}
+
+void Game::Stop()
+{
+    window->close();
 }

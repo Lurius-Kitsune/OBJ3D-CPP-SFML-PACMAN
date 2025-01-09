@@ -5,7 +5,7 @@ PacMan::PacMan(Level* _level, const Vector2f& _shapeSize) : Entity(_level, "Pacm
 	movement = new MovementComponent(this);
 	life = new LifeCoponent(this);
 	animation = new AnimationComponent(this, Vector2i(texture.getSize()), Vector2i(3, 1), 1);
-	animation->SetCurrentFrame({1,0});
+	animation->SetCurrentFrame({ 1,0 });
 	SetupInput();
 }
 
@@ -30,6 +30,7 @@ void PacMan::SetupInput()
 	{
 		movement->ToogleMoveStatus(); 
 		animation->ToogleRunStatus();
+		animation->SetCurrentFrame({ 1,0 });
 	}, Code::Space);
 
 	_inputManager.BindAction([&]() { movement->SetDirection(Vector2i(0, -1)); }, { Code::Z, Code::Up });

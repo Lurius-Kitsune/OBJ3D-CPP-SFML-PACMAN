@@ -18,9 +18,12 @@ public:
 	Game();
 	~Game();
 
+
 public:
 	void Launch();
 
 private:
-	void GameLoop();
+	void Start();
+	void Update();
+	void Stop();
 };
