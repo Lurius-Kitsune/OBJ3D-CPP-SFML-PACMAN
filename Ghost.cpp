@@ -22,7 +22,7 @@ void Ghost::Update()
 		Vector2i(-1, 0),
 		Vector2i(1, 0)
 	};
-	movement->SetDirection(_direction[RandomInt(0, 3)]);
+	movement->SetDirection(_direction[RandomInt(0, 3)], false);
 	movement->Update();
 	animation->Update();
 }
@@ -41,6 +41,7 @@ void Ghost::Eat(Entity* _entity)
 		else
 		{
 			_pacMan->Die();
+			movement->ToogleMoveStatus();
 		}
 	}
 }

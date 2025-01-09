@@ -14,10 +14,10 @@ public:
 		canMove = !canMove;
 	}
 
-	INLINE void SetDirection(const Vector2i& _newDirection)
+	INLINE void SetDirection(const Vector2i& _newDirection, const bool _rotate = true)
 	{
 		if (!canMove) return;
-		if (_newDirection != direction)
+		if (_rotate && _newDirection != direction)
 		{
 			Rotate(_newDirection);
 		}

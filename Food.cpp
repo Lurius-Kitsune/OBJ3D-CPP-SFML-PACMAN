@@ -21,6 +21,7 @@ void Food::Eat(Entity* _entity)
 		_pacMan->AddPoint(points);
 		if (type != FT_GHOST)
 		{
+			// TODO Code pour aller au spawn
 			shape.setScale(Vector2f());
 		}
 	}

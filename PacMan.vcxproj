@@ -198,9 +198,6 @@ xcopy /y /d  ".\lib\prog1Dll\dll\Prog1Lib.dll" "$(OutDir)"
     <ClInclude Include="Singleton.h" />
     <ClInclude Include="TextureManager.h" />
   </ItemGroup>
-  <ItemGroup>
-    <ResourceCompile Include="PacMan.rc" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
