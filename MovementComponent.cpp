@@ -30,7 +30,7 @@ void MovementComponent::Move()
 			owner->GetCollision()->Collide(_entity);
 			_entity->GetCollision()->Collide(owner);
 		}
-		if (!_entity || _entity->GetCollision()->IsBlocking())
+		if (!_entity || !_entity->GetCollision()->IsBlocking())
 		{
 			_shape .setPosition(_destination);
 		}
