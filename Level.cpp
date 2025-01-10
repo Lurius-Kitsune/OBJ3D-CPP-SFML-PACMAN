@@ -29,14 +29,6 @@ void Level::Update()
     {
         _entity->Update();
     }
-
-    for (Entity* _entity : entities)
-    {
-        if (_entity->IsToRemove())
-        {
-            _entity->Destroy();
-        }
-    }
     Display();
 }
 
