@@ -23,10 +23,10 @@ public:
 
 public:
 	Food(Level* _level, const string& _name, const Vector2f& _shapeSize, const EntityType& _type ,const int _points);
+	void Death(Entity* _entity);
 
 protected:
 	virtual void Destroy();
 
 private:
-	void Death(Entity* _entity);
 };

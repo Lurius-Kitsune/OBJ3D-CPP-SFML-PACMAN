@@ -100,15 +100,21 @@ void PacMan::EatEatable(Entity* _entity)
 	if (Food* _food = Cast<Food>(_entity))
 	{
 		RetrieveScore(_food);
+		_food->Death(_entity);
 		level->RemoveEatable(_food);
 	}
 }
 
 void PacMan::EatApple(Entity* _entity)
 {
-	RetrieveScore(Cast<Food>(_entity));
-	level->ActiveVulnerableEvent();
+	if (Food* _food = Cast<Food>(_entity))
+	{
+		RetrieveScore(_food);
+		level->ActiveVulnerableEvent();
+		_food->Death(_entity);
+	}
 }
+	
 
 void PacMan::RetrieveScore(Food* _entity)
 {
