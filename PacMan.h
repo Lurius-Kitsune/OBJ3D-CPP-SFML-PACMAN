@@ -42,5 +42,8 @@ public:
 private:
 	void SetupInput();
 	void EatGhost(Entity* _entity);
+	void EatEatable(Entity* _entity);
+	void EatApple(Entity* _entity);
+	void RetrieveScore(Food* _entity);
 
 };

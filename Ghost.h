@@ -11,6 +11,11 @@ class Ghost : public Food
 	bool isVulnerable;
 
 public:
+
+	INLINE bool IsVulenerable()const
+	{
+		return isVulnerable;
+	}
 	INLINE void SetVulnerableStatus(const bool _status)
 	{
 		isVulnerable = _status;
@@ -23,8 +28,9 @@ public:
 
 public:
 	virtual void Update() override;
+	virtual void Destroy() override;
 private:
-	virtual bool Eat(Entity* _entity) override;
 	void SetupInput();
+	void EatPacMan(Entity* _entity);
 
 };

@@ -1,5 +1,7 @@
 #include "PacMan.h"
 #include "InputManager.h"
+#include "Ghost.h"
+#include "Game.h"
 
 PacMan::PacMan(Level* _level, const Vector2f& _shapeSize) : Entity(_level, "Pacman/PacMan_Moving", _shapeSize, ET_PACMAN)
 {
@@ -9,6 +11,8 @@ PacMan::PacMan(Level* _level, const Vector2f& _shapeSize) : Entity(_level, "Pacm
 	animation->SetCurrentFrame({ 1,0 });
 	deathSpriteNumber = 12;
 	collision->AddCallback(ET_GHOST, bind(&PacMan::EatGhost, this, placeholders::_1));
+	collision->AddCallback(ET_EATBLE, bind(&PacMan::EatEatable, this, placeholders::_1));
+	collision->AddCallback(ET_APPLE, bind(&PacMan::EatApple, this, placeholders::_1));
 
 	SetupInput();
 }
@@ -81,5 +85,36 @@ void PacMan::SetupInput()
 
 void PacMan::EatGhost(Entity* _entity)
 {
+	if (Ghost* _ghost = Cast<Ghost>(_entity))
+	{
+		if (_ghost->IsVulenerable())
+		{
+			RetrieveScore(_ghost);
+			_ghost->Destroy();
+		}
+	}
+}
+
+void PacMan::EatEatable(Entity* _entity)
+{
+	if (Food* _food = Cast<Food>(_entity))
+	{
+		RetrieveScore(_food);
+		level->RemoveEatable(_food);
+	}
+}
+
+void PacMan::EatApple(Entity* _entity)
+{
+	RetrieveScore(Cast<Food>(_entity));
+	level->ActiveVulnerableEvent();
+}
+
+void PacMan::RetrieveScore(Food* _entity)
+{
+	if (Food* _food = Cast<Food>(_entity))
+	{
+		Game::GetInstance().AddScore(_food->GetPoint());
+	}
 }
 

@@ -8,9 +8,9 @@ Ghost::Ghost(Level* _level, const Vector2f& _shapeSize)
 {
 	isVulnerable = false;
 	movement = new GhostMovementCompenent(this);
+	collision->AddCallback(ET_PACMAN, bind(&Ghost::EatPacMan, this, placeholders::_1));
 	animation = new AnimationComponent(this, Vector2i(texture.getSize()), Vector2i(4,1), 1);
 	animation->SetCurrentFrame(Vector2i(1,0));
-	//collision->AddCallback(ET_WALL, [&]() { movement->ComputeNewDirection();  });
 	SetupInput();
 }
 
@@ -24,6 +24,16 @@ void Ghost::SetupInput()
 {
 	InputManager& _inputManager = InputManager::GetInstance();
 	_inputManager.BindAction([&]() { movement->ToogleMoveStatus(); animation->ToogleRunStatus();}, Code::Space);
+}
+
+void Ghost::EatPacMan(Entity* _entity)
+{
+	if (isVulnerable) return;
+
+	if (PacMan* _pacMan = Cast<PacMan>(_entity))
+	{
+		_pacMan->Death();
+	}
 }
 
 
@@ -41,25 +51,7 @@ void Ghost::Update()
 	animation->Update();
 }
 
-bool Ghost::Eat(Entity* _entity)
+void Ghost::Destroy()
 {
-	if (PacMan* _pacMan = Cast<PacMan>(_entity))
-	{
-		if (isVulnerable)
-		{
-			return Super::Eat(_entity);
-		}
-		else
-		{
-			_pacMan->Death();
-			if (LifeCoponent* _life = _pacMan->GetLifeCoponent())
-			{
-				_life->RemoveLife();
-			}
-			return false;
-		}
-	}
-
-	return true;
-
+	Super::Destroy();
 }

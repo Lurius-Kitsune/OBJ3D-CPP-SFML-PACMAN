@@ -44,6 +44,8 @@ Entity* Level::CheckCollision(const Vector2f& _targetPosition)
 
 void Level::RemoveEatable(Food* _eatable)
 {
+    if (eatables.find(_eatable) == eatables.end()) return;
+
     eatables.erase(eatables.find(_eatable));
     if (IsOver())
     {

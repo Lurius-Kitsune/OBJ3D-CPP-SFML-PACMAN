@@ -14,9 +14,19 @@ enum FoodType
 class Food : public Entity
 {
 	int points;
+
+public:
+	INLINE int GetPoint()const
+	{
+		return points;
+	}
+
 public:
 	Food(Level* _level, const string& _name, const Vector2f& _shapeSize, const EntityType& _type ,const int _points);
 
 protected:
-	virtual bool Eat(Entity* _entity);
+	virtual void Destroy();
+
+private:
+	void Death(Entity* _entity);
 };

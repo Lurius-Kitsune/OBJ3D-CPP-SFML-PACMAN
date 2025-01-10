@@ -8,27 +8,12 @@ Food::Food(Level* _level, const string& _name, const Vector2f& _shapeSize, const
 	points = _points;
 }
 
-bool Food::Eat(Entity* _entity)
+void Food::Destroy()
 {
-	if (PacMan* _pacMan = Cast<PacMan>(_entity))
-	{
-		Game& _game = Game::GetInstance();
-		if(type == ET_EATBLE)
-		{
-			level->RemoveEatable(this);
-		}
-		else if (type == ET_APPLE)
-		{
-			level->ActiveVulnerableEvent();
-		}
-		else if (type == ET_GHOST)
-		{
-			cout << "crounch crounch, je fus mangeeeeeee" << endl;
-		}
+	shape.setScale(Vector2f());
+}
 
-		shape.setScale(Vector2f());
-		_game.AddScore(points);
-	}
-
-	return true;
+void Food::Death(Entity* _entity)
+{
+	Destroy();
 }
