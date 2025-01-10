@@ -25,19 +25,11 @@ void CollisionComponent::Collide(Entity* _entity)
 	* -> pomme : None
 	* -> PacMan : overlap
 	**/
-
-	callbacks[_entity->GetType()](_entity);
-
-	/*for (const auto& _callback : callbacks)
+	const EntityType& _type = _entity->GetType();
+	if (callbacks.contains(_type))
 	{
-		if (_callback.first == _entity->)
+		callbacks[_type](_entity);
 	}
-
-	if (type == CT_OVERLAP)
-	{
-		return callback(_entity);
-	}
-	return type != CT_BLOCK;*/
 }
 
 void CollisionComponent::AddCallback(const EntityType& _type, const function<void(Entity* _entity)>& _callback)
