@@ -72,6 +72,7 @@ void PacMan::SetupInput()
 		animation->SetCurrentFrame({ 1,0 });
 	}, Code::Space);
 
+	_inputManager.BindAction([&]() { Death(); }, { Code::K });
 	_inputManager.BindAction([&]() { movement->SetDirection(Vector2i(0, -1)); }, { Code::Z, Code::Up });
 	_inputManager.BindAction([&](){ movement->SetDirection(Vector2i(0, 1)); }, { Code::S, Code::Down });
 	_inputManager.BindAction([&](){ movement->SetDirection(Vector2i(-1, 0)); }, { Code::Q, Code::Left });

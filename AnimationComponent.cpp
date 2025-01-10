@@ -23,9 +23,8 @@ void AnimationComponent::SetCurrentFrame(const Vector2i& _frame)
 
 void AnimationComponent::SetTexture(const Vector2i& _spriteSize, const Vector2i& _grid, const float _speed, const bool _isLoop, const string& _texturePath)
 {
-	Reset();
 
-	canRun = false;
+	Reset();
 	isLoop = _isLoop;
 	speed = _speed;
 	spriteSize = _spriteSize;
