@@ -10,7 +10,12 @@ Food::Food(Level* _level, const string& _name, const Vector2f& _shapeSize, const
 
 void Food::Destroy()
 {
+	if (type == ET_EATBLE || type == ET_APPLE)
+	{
+		level->RemoveEatable(this);
+	}
 	shape.setScale(Vector2f());
+	Super::Destroy();
 }
 
 void Food::Death(Entity* _entity)

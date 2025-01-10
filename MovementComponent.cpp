@@ -28,11 +28,15 @@ void MovementComponent::Move()
 		if (_entity)
 		{
 			owner->GetCollision()->Collide(_entity);
-			_entity->GetCollision()->Collide(owner);
+			if (!_entity->IsToRemove())
+			{
+				_entity->GetCollision()->Collide(owner);
+			}
 		}
-		if (!_entity || !_entity->GetCollision()->IsBlocking())
+
+		if (!_entity || _entity->IsToRemove() || !_entity->GetCollision()->IsBlocking())
 		{
-			_shape .setPosition(_destination);
+			_shape.setPosition(_destination);
 		}
 	}
 }

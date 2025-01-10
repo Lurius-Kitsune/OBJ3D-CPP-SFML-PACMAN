@@ -51,7 +51,7 @@ class Level
 {
 	string name;
 	string prefixPath;
-	vector<Entity*> entities;
+	set<Entity*> entities;
 	set<Food*> eatables;
 	set<Ghost*> ghosts;
 	Vector2u mapSize;
@@ -77,6 +77,7 @@ public:
 	void Update();
 	Entity* CheckCollision(const Vector2f& _targetPosition);
 	void RemoveEatable(Food* _eatable);
+	void RemoveEntity(Entity* _entity);
 	void ActiveVulnerableEvent();
 	void Respawn(Entity* _entity);
 
@@ -84,6 +85,6 @@ private:
 	void Generate();
 	void SpawnEntity(const Vector2f& _shapeSize, const char _symbol, const u_int& _j, const u_int& _i);
 	Vector2f ComputePosition(const u_int& _j, const Vector2f& _shapeSize, const u_int& _i);
-	void Display(RenderWindow* _window) const;
+	void Display() const;
 	void DeactiveVulenerableEvent();
 };

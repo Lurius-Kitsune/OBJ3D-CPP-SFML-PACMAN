@@ -13,7 +13,7 @@ PacMan::PacMan(Level* _level, const Vector2f& _shapeSize) : Entity(_level, "Pacm
 	collision->AddCallback(ET_GHOST, bind(&PacMan::EatGhost, this, placeholders::_1));
 	collision->AddCallback(ET_EATBLE, bind(&PacMan::EatEatable, this, placeholders::_1));
 	collision->AddCallback(ET_APPLE, bind(&PacMan::EatApple, this, placeholders::_1));
-
+	isDead = false;
 	SetupInput();
 }
 
@@ -76,7 +76,6 @@ void PacMan::SetupInput()
 		animation->SetCurrentFrame({ 1,0 });
 	}, Code::Space);
 
-	_inputManager.BindAction([&]() { Death(); }, { Code::K });
 	_inputManager.BindAction([&]() { movement->SetDirection(Vector2i(0, -1)); }, { Code::Z, Code::Up });
 	_inputManager.BindAction([&](){ movement->SetDirection(Vector2i(0, 1)); }, { Code::S, Code::Down });
 	_inputManager.BindAction([&](){ movement->SetDirection(Vector2i(-1, 0)); }, { Code::Q, Code::Left });
@@ -100,8 +99,7 @@ void PacMan::EatEatable(Entity* _entity)
 	if (Food* _food = Cast<Food>(_entity))
 	{
 		RetrieveScore(_food);
-		_food->Death(_entity);
-		level->RemoveEatable(_food);
+		_food->AddToRemove();
 	}
 }
 
@@ -111,7 +109,7 @@ void PacMan::EatApple(Entity* _entity)
 	{
 		RetrieveScore(_food);
 		level->ActiveVulnerableEvent();
-		_food->Death(_entity);
+		_food->AddToRemove();
 	}
 }
 	

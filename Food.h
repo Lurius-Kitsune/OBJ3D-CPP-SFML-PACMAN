@@ -26,7 +26,7 @@ public:
 	void Death(Entity* _entity);
 
 protected:
-	virtual void Destroy();
+	virtual void Destroy() override;
 
 private:
 };

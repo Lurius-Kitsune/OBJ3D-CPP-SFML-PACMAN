@@ -7,7 +7,7 @@
 
 class Entity : public Object
 {
-
+	bool isToRemove;
 	Vector2f shapeSize;
 protected:
 	EntityType type;
@@ -20,6 +20,16 @@ public:
 	INLINE Level* GetLevel()const
 	{
 		return level;
+	}
+
+	INLINE bool IsToRemove()
+	{
+		return isToRemove;
+	}
+
+	INLINE void AddToRemove()
+	{
+		isToRemove = true;
 	}
 
 	INLINE void SetPosition(const Vector2f& _position)
@@ -64,4 +74,5 @@ public:
 
 public:
 	virtual void Update() override;
+	virtual void Destroy();
 };

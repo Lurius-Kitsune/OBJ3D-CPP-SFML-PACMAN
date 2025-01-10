@@ -4,6 +4,7 @@
 Entity::Entity(Level* _level, const string& _name, const Vector2f& _shapeSize,
 	const EntityType& _type, const bool _isBlocking )
 {
+	isToRemove = false;
 	level = _level;
 	shapeSize = _shapeSize;
 	shape = RectangleShape(shapeSize);
@@ -21,4 +22,14 @@ Entity::~Entity()
 void Entity::Update()
 {
 	collision->Update();
+	if (isToRemove)
+	{
+		Destroy();
+	}
+}
+
+void Entity::Destroy()
+{
+	level->RemoveEntity(this);
+	delete this;
 }

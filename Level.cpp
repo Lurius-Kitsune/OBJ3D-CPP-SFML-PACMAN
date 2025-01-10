@@ -29,7 +29,15 @@ void Level::Update()
     {
         _entity->Update();
     }
-    Display(Game::GetInstance().GetWindow());
+
+    for (Entity* _entity : entities)
+    {
+        if (_entity->IsToRemove())
+        {
+            _entity->Destroy();
+        }
+    }
+    Display();
 }
 
 Entity* Level::CheckCollision(const Vector2f& _targetPosition)
@@ -47,10 +55,16 @@ void Level::RemoveEatable(Food* _eatable)
     if (eatables.find(_eatable) == eatables.end()) return;
 
     eatables.erase(eatables.find(_eatable));
+    
     if (IsOver())
     {
         Game::GetInstance().Stop();
     }
+}
+
+void Level::RemoveEntity(Entity* _entity)
+{
+    entities.erase(entities.find(_entity));
 }
 
 void Level::ActiveVulnerableEvent()
@@ -67,8 +81,9 @@ void Level::Respawn(Entity* _entity)
     cout << "Respaw" << endl;
 }
 
-void Level::Display(RenderWindow* _window) const
+void Level::Display() const
 {
+    RenderWindow* _window = Game::GetInstance().GetWindow();
     for (Entity* _entity : entities)
     {
         _window->draw(_entity->GetShape());
@@ -142,7 +157,7 @@ void Level::SpawnEntity(const Vector2f& _shapeSize, const char _symbol, const u_
 
     Entity* _entity = _textureDatabase[_symbol]();
     _entity->SetPosition(_position);
-    entities.push_back(_entity);
+    entities.insert(_entity);
 }
 
 Vector2f Level::ComputePosition(const u_int& _j, const Vector2f& _shapeSize, const u_int& _i)
