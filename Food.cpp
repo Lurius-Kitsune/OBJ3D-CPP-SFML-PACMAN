@@ -2,10 +2,9 @@
 #include "PacMan.h"
 #include "Game.h"
 
-Food::Food(Level* _level, const string& _name, const Vector2f& _shapeSize, const FoodType& _type, const int _points)
-	: Entity(_level, _name, _shapeSize, CT_OVERLAP, [&](Entity* _entity) {return Eat(_entity); })
+Food::Food(Level* _level, const string& _name, const Vector2f& _shapeSize, const EntityType& _type, const int _points)
+	: Entity(_level, _name, _shapeSize, _type)
 {
-	type = _type;
 	points = _points;
 }
 
@@ -14,22 +13,20 @@ bool Food::Eat(Entity* _entity)
 	if (PacMan* _pacMan = Cast<PacMan>(_entity))
 	{
 		Game& _game = Game::GetInstance();
-		if(type == FT_EATABLE)
+		if(type == ET_EATBLE)
 		{
 			level->RemoveEatable(this);
 		}
-		else if (type == FT_APPLE)
+		else if (type == ET_APPLE)
 		{
 			level->ActiveVulnerableEvent();
 		}
-		else if (type == FT_GHOST)
+		else if (type == ET_GHOST)
 		{
 			cout << "crounch crounch, je fus mangeeeeeee" << endl;
 		}
 
-		type = FT_COUNT;
 		shape.setScale(Vector2f());
-		collision->SetType(CT_NONE);
 		_game.AddScore(points);
 	}
 

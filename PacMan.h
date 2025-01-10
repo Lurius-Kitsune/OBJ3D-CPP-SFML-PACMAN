@@ -41,5 +41,6 @@ public:
 	void DisplayDeath();
 private:
 	void SetupInput();
+	void EatGhost(Entity* _entity);
 
 };

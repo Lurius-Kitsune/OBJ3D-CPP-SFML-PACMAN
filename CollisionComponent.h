@@ -1,6 +1,7 @@
 #pragma once
 #include "CoreMinimal.h"
 #include "Component.h"
+#include "EntityType.h"
 
 enum CollisionType
 {
@@ -13,16 +14,18 @@ enum CollisionType
 
 class CollisionComponent : public Component
 {
-	CollisionType type;
-	function<bool(Entity* _entity)> callback;
+	bool isBlocking ;
+	map<EntityType, function<void(Entity* _entity)>> callbacks;
 
 public:
-	INLINE void SetType(const CollisionType& _status)
+	INLINE bool IsBlocking() const
 	{
-		type = _status;
+		return isBlocking;
 	}
 public:
-	CollisionComponent(const CollisionType& _type, const function<bool(Entity* _entity)>& _callback , Entity * _owner);
+	CollisionComponent(Entity* _owner, const bool _isBlocking = false);
 public:
-	bool Collide(Entity* _entity);
+	void Collide(Entity* _entity);;
+	void AddCallback(const EntityType& _type, const function<void(Entity* _entity)>& _callback);
+
 };

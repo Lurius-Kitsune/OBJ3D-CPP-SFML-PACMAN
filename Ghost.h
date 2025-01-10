@@ -22,8 +22,9 @@ public:
 
 
 public:
-	void SetupInput();
 	virtual void Update() override;
 private:
 	virtual bool Eat(Entity* _entity) override;
+	void SetupInput();
+
 };

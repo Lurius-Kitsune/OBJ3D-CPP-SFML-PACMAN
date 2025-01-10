@@ -3,13 +3,14 @@
 #include "Object.h"
 #include "Level.h"
 #include "CollisionComponent.h"
+#include "EntityType.h"
 
 class Entity : public Object
 {
 
 	Vector2f shapeSize;
-
 protected:
+	EntityType type;
 	CollisionComponent* collision;
 	RectangleShape shape;
 	Texture texture;
@@ -45,6 +46,11 @@ public:
 		return shape.getPosition();
 	}
 
+	INLINE EntityType GetType() const
+	{
+		return type;
+	}
+
 	INLINE CollisionComponent* GetCollision() const
 	{
 		return collision;
@@ -52,7 +58,7 @@ public:
 
 public:
 	Entity(Level* _level, const string& _name, const Vector2f& _shapeSize,
-		const CollisionType& _type = CT_BLOCK, const function<bool(Entity* _entity)>& _callback = {});
+		const EntityType& _type, const bool _isBlocking = false);
 
 	virtual ~Entity();
 

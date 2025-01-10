@@ -6,6 +6,7 @@ class MovementComponent : public Component
 {
 	bool canMove;
 	int speed;
+protected:
 	Vector2i direction;
 
 public:

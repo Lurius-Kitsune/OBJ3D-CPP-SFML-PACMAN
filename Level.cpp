@@ -117,15 +117,15 @@ void Level::SpawnEntity(const Vector2f& _shapeSize, const char _symbol, const u_
     map<char, function<Entity*()>> _textureDatabase =
     {
         {'#', [&]() {
-            return new Entity(this, "Walls/Wall", _shapeSize, CT_BLOCK);
+            return new Entity(this, "Walls/Wall", _shapeSize, ET_WALL, true);
         }},
         { '.', [&]() {
-            Food* _eatable = new Food(this,"Foods/Point" , _shapeSize, FT_EATABLE, 10);
+            Food* _eatable = new Food(this,"Foods/Point" , _shapeSize, ET_EATBLE, 10);
             eatables.insert(_eatable);
             return _eatable;
         }},
         { '*', [&]() {
-            return new Food(this,"Foods/Apple" , _shapeSize,  FT_APPLE, 100);
+            return new Food(this,"Foods/Apple" , _shapeSize,  ET_APPLE, 100);
         }},
         { 'C',  [&]() {
             playerStart = _position;

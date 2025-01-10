@@ -25,7 +25,9 @@ void MovementComponent::Move()
 		const Vector2f& _destination = owner->GetShape().getPosition() + Vector2f(_x, _y);
 		Entity* _entity = owner->GetLevel()->CheckCollision(_destination);
 
-		if (!_entity || _entity->GetCollision()->Collide(owner))
+		owner->GetCollision()->Collide(_entity);
+		_entity->GetCollision()->Collide(owner);
+		if (!_entity || _entity->GetCollision()->IsBlocking())
 		{
 			_shape .setPosition(_destination);
 		}

@@ -12,5 +12,5 @@ public:
 
 public:
 	virtual void Update() override;
-
+	void ComputeNewDirection();
 };

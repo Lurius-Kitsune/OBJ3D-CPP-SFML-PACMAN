@@ -4,13 +4,13 @@
 #include "InputManager.h"
 
 Ghost::Ghost(Level* _level, const Vector2f& _shapeSize)
-	: Food(_level, "Ghosts/BlueGhost_Moving", _shapeSize, FT_GHOST, 1000)
+	: Food(_level, "Ghosts/BlueGhost_Moving", _shapeSize,ET_GHOST, 1000)
 {
 	isVulnerable = false;
 	movement = new GhostMovementCompenent(this);
 	animation = new AnimationComponent(this, Vector2i(texture.getSize()), Vector2i(4,1), 1);
 	animation->SetCurrentFrame(Vector2i(1,0));
-
+	//collision->AddCallback(ET_WALL, [&]() { movement->ComputeNewDirection();  });
 	SetupInput();
 }
 
@@ -25,6 +25,7 @@ void Ghost::SetupInput()
 	InputManager& _inputManager = InputManager::GetInstance();
 	_inputManager.BindAction([&]() { movement->ToogleMoveStatus(); animation->ToogleRunStatus();}, Code::Space);
 }
+
 
 void Ghost::Update()
 {
