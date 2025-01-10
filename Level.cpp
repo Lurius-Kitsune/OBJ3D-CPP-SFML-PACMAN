@@ -25,8 +25,16 @@ Level::~Level()
 void Level::Update()
 {
     vulnerableTimer->Update(0.05F);
-    for (Entity* _entity : entities)
+    // Le probleme cest que le calcule ne se fait qu'une fois, et ne se met pas à jours !
+    //for (Entity* _entity : entities)
+    for (set<Entity*>::iterator _current = entities.begin(); _current != entities.end(); _current++)
     {
+        Entity* _entity = *_current;
+
+        if (_entity->IsToRemove())
+        {
+            _current--;
+        }
         _entity->Update();
     }
     Display();
